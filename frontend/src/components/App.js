@@ -2,13 +2,16 @@ import Styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+import Header from "./Header";
 import HomePage from "./HomePage";
 import Collection from "./Collection";
+import Footer from "./Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <Div className="App">
+      <Header />
+      <Main className="App">
         <GlobalStyles />
         This is App comp.
         <Switch>
@@ -19,16 +22,25 @@ function App() {
             <Collection />
           </Route>
         </Switch>
-      </Div>
+      </Main>
+      <Footer />
     </BrowserRouter>
   );
 }
 
 export default App;
 
-const Div = Styled.div`
+const Main = Styled.main`
 
 background: pink;
 padding: 1rem;
 border-radius: 1rem;
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 1rem;
+}
 `;
