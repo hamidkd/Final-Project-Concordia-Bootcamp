@@ -1,0 +1,8 @@
+{
+  "name": "final-project-concordia-bootcamp-backend",
+  "version": "1.0.0",
+  "description": "This is the backend for my final concordia bootcamp. My prject is platform to find tutors for different subjects and get online classes. ",
+  "main": "index.js",
+  "author": "Hamid Keshmiri",
+  "license": "MIT"
+}
