@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import Styled from "styled-components";
 
 const Footer = () => {
-  return <Div>This is footer comp.</Div>;
+  return (
+    <footer>
+      <Div>This is footer comp.</Div>
+    </footer>
+  );
 };
 
 export default Footer;
