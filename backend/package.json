@@ -4,5 +4,12 @@
   "description": "This is the backend for my final concordia bootcamp. My prject is platform to find tutors for different subjects and get online classes. ",
   "main": "index.js",
   "author": "Hamid Keshmiri",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  }
 }
