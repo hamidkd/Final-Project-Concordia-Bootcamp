@@ -1,12 +1,26 @@
 import Styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import HomePage from "./HomePage";
+import Collection from "./Collection";
 
 function App() {
   return (
-    <Div className="App">
-      <GlobalStyles />
-      This is App comp.
-    </Div>
+    <BrowserRouter>
+      <Div className="App">
+        <GlobalStyles />
+        This is App comp.
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/tutors">
+            <Collection />
+          </Route>
+        </Switch>
+      </Div>
+    </BrowserRouter>
   );
 }
 
