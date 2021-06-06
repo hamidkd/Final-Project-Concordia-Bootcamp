@@ -5,18 +5,19 @@ const {
   getAllTutors,
   getProfileByUsername,
   getAllOrders,
-  getOrdersByTutorId,
+  getOrdersByTutorUsername,
   getUserByUsername,
 } = require("./handlers");
 
 const express = require("express");
+var bodyParser = require("body-parser");
 const morgan = require("morgan");
 
-const app = erxpress();
+const app = express();
 //this will give you HTTP requests log in console
 app.use(morgan("tiny"));
 
-app.use(express.bodyParser());
+app.use(bodyParser());
 
 //requests for statics files will go to into the public folder.
 app.use(express.static("public"));
@@ -26,7 +27,7 @@ app.get("/api/categories", getAllCategories);
 app.get("/api/tutors", getAllTutors);
 app.get("/api/tutors/:username", getProfileByUsername);
 app.get("/api/orders", getAllOrders);
-app.get("/api/orders/:tutorId", getOrdersByTutorId);
+app.get("/api/orders/:tutorId", getOrdersByTutorUsername);
 app.get("/api/users/:username", getUserByUsername);
 
 // this is the catch all endpoint ---------------------------------
