@@ -1,5 +1,14 @@
 "use strict";
 
+const {
+  getAllCategories,
+  getAllTutors,
+  getProfileByUsername,
+  getAllOrders,
+  getOrdersByTutorId,
+  getUserByUsername,
+} = require("./handlers");
+
 const express = require("express");
 const morgan = require("morgan");
 
@@ -13,7 +22,12 @@ app.use(express.bodyParser());
 app.use(express.static("public"));
 
 //endpoints ------------------------------------------------------
-app.get("/api/");
+app.get("/api/categories", getAllCategories);
+app.get("/api/tutors", getAllTutors);
+app.get("/api/tutors/:username", getProfileByUsername);
+app.get("/api/orders", getAllOrders);
+app.get("/api/orders/:tutorId", getOrdersByTutorId);
+app.get("/api/users/:username", getUserByUsername);
 
 // this is the catch all endpoint ---------------------------------
 
