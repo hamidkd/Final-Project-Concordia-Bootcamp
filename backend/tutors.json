@@ -1,0 +1,49 @@
+[
+  {
+    "_id": { "$oid": "60be6d9416d0b01f4d9c68fc" },
+    "username": "AlbertE",
+    "role": "tutor",
+    "firstname": "Albert",
+    "lastname": "Einstein",
+    "bio": "Albert Einstein was a German-born theoretical physicist, widely acknowledged to be one of the greatest physicists of all time. Einstein is known for developing the theory of relativity, but he also made important contributions to the development of the theory of quantum mechanics.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "How to create your own theory of world",
+    "category": "physics",
+    "sessionDuration": "60",
+    "email": "albert.e@email.com",
+    "phone": "454254545",
+    "reviews": [
+      {
+        "text": "The materail are too abstract. definatly not suitable for kids",
+        "stars": { "$numberDouble": "1.5" }
+      },
+      {
+        "text": "Needs to be more punctual.",
+        "stars": { "$numberDouble": "2.5" }
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "60be6d9416d0b01f4d9c68fc" },
+    "username": "Beethoven",
+    "role": "tutor",
+    "firstname": "Ludwig",
+    "lastname": "van Beethoven",
+    "bio": "Ludwig van Beethoven was a German composer and pianist. Beethoven remains one of the most admired composers in the history of Western music; his works rank amongst the most performed of the classical music repertoire. His works span the transition from the classical period to the romantic era in classical music.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Piano for kids",
+    "category": "music",
+    "sessionDuration": "30",
+    "email": "beethoven_d@email.com",
+    "phone": "4565767",
+    "reviews": [
+      {
+        "text": "arash is one of the best teachers I ever had",
+        "stars": { "$numberDouble": "4.8" }
+      },
+      { "text": "not bad", "stars": { "$numberDouble": "3.5" } }
+    ]
+  }
+]
