@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Styled from "styled-components";
 
 import TutorCard from "./TutorCard";
 
 const Collection = () => {
+  const [tutors, setTutors] = useState(null);
+  useEffect(() => {
+    //fetch all tutors
+    console.log("here");
+    fetch("/api/tutors")
+      .then((res) => res.json())
+      .then((json) => setTutors(json.data));
+  }, []);
+
   return (
     <Div>
       This is tutors Collection Comp.
-      <ul className="tutors">
-        <TutorCard name="babak" />
-        <TutorCard name="farhad" />
-        <TutorCard name="jafar" />
-      </ul>
+      {tutors && (
+        <ul className="tutors">
+          {tutors.map((tutor, index) => {
+            return <TutorCard tutor={tutor} key={"tutor-" + index} />;
+          })}
+        </ul>
+      )}
     </Div>
   );
 };

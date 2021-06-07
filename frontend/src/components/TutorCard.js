@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 import Styled from "styled-components";
 
-
-const TutorCard = () => {
-    return (
-        <Div>
-            This is a tutor card.
-        </Div>
-    )
-}
+const TutorCard = ({ tutor }) => {
+  return (
+    <Div>
+      <p>This is a tutor card.</p>
+      <p>{tutor.username}</p>
+    </Div>
+  );
+};
 
 export default TutorCard;
-
 
 const Div = Styled.div`
 
@@ -21,4 +20,4 @@ border-radius: 1rem;
 
 min-height: 200px;
 
-`
+`;

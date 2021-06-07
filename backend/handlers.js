@@ -1,22 +1,12 @@
 "use strict";
 
-const { connectToDB } = require("./dbConnector");
+const { connectToDB, findInDBAndSend } = require("./dbConnector");
 
 const getAllCategories = async (req, res) => {
   console.log("Fake Get all categories");
 };
 const getAllTutors = async (req, res) => {
-  try {
-    const { db, client } = await connectToDB();
-    console.log("Fake Get all users");
-    const users = await db.collection("users").find().toArray();
-    client.close();
-    res.status(200).json({
-      status: 200,
-      message: "Here are the flight numbers.",
-      data: users,
-    });
-  } catch (error) {}
+  findInDBAndSend({ collectionName: "users", mongoQuery: null, res: res });
 };
 const getProfileByUsername = async (req, res) => {
   console.log("Fake Get Tutor Profile by username");
