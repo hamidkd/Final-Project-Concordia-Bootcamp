@@ -6,6 +6,7 @@ const TutorProfile = () => {
     <Div>
       <h2>Tutor name</h2>
       <p>description here</p>
+      <img alt='profile-picture' src='tutor-photo-1.jpg' />
     </Div>
   );
 };
