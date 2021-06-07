@@ -2,7 +2,7 @@ import React from "react";
 import Styled from "styled-components";
 
 const Collection = ({ category }) => {
-  return <Div>This is Category card {category}</Div>;
+  return <Div> {category.name}</Div>;
 };
 
 export default Collection;

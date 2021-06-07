@@ -1,12 +1,20 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
-export const AppContext = createContext();
+export const AppContext = createContext(null);
 
 export const AppProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [categories, setCategories] = useState(null);
 
+  useEffect(() => {
+    fetch("/api/categories")
+      .then((res) => res.json())
+      .then((json) => setCategories(json.data));
+  }, []);
+
+  console.log("cats", categories);
   return (
-    <AppContext.Provider value={(user, setUser)}>
+    <AppContext.Provider value={{ currentUser, setCurrentUser, categories }}>
       {children}
     </AppContext.Provider>
   );

@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "styled-components";
+import { AppContext } from "./AppProvider";
 
-import CategoryCard from './CategoryCard';
-import Hero from './Hero';
+import CategoryCard from "./CategoryCard";
+import Hero from "./Hero";
 
 const HomePage = () => {
+  const { categories } = useContext(AppContext);
   return (
     <Div>
-        <Hero />
-      
+      <Hero />
       <section>
-          <h2>Categories</h2>
-          <ul className='categories'>
-              <CategoryCard category='music' />
-              <CategoryCard category='dance' />
-              <CategoryCard category='yoga' />
-              <CategoryCard category='photography' />
-              <CategoryCard category='math' />
-              <CategoryCard category='fitness' />
-          </ul>
+        <h2>Categories</h2>
+        <ul className="categories">
+          {categories && categories.map(category => {
+            return (
+              <CategoryCard category={category} />
+            );
+          })}
+        </ul>
       </section>
       <section>
-          <h2>Some Features</h2>
+        <h2>Some Features</h2>
       </section>
     </Div>
   );
