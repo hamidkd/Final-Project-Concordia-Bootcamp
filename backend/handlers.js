@@ -1,22 +1,40 @@
 "use strict";
 
-const avatarImgs = require("./data/tutorImgs.json");
+const tutorImgs = require("./data/tutorImgs");
 
 const { connectToDB } = require("./dbConnector");
 
 const getAllCategories = async (req, res) => {
-  findInDBAndSend({ collectionName: "categories", mongoQuery: null, res });
+  findInDB({ collectionName: "categories", mongoQuery: null, res });
 };
 const getAllTutors = async (req, res) => {
-  findInDBAndSend({ collectionName: "tutors", mongoQuery: null, res });
+  let result = await findInDB({
+    collectionName: "tutors",
+    mongoQuery: null,
+  });
+
+  console.log(result.data[0]);
+
+  if (result.status === 200) {
+    const newData = result.data.map((tutor) => {
+      tutor.avatarImg = tutorImgs[tutor.username].avatarImg;
+      return tutor;
+    });
+  }
+
+  res.status(result.status).json(result);
 };
 
 const getTutorProfileByUsername = async (req, res) => {
-  findOneInDBAndSend({
+  const result = findOneInDB({
     collectionName: "tutors",
     mongoQuery: { username: req.params.username.toLowerCase() },
-    res,
   });
+  if (result.status === 200) {
+    result.data.avatarImg = tutorImgs[result.data.username].avatarImg;
+  }
+
+  res.status((await result).status).json(result);
 };
 
 const getAllOrders = async (req, res) => {
@@ -29,61 +47,39 @@ const getUserByUsername = async (req, res) => {
   console.log("Fake Get user by username");
 };
 
-const findInDBAndSend = async ({ collectionName, mongoQuery, res }) => {
+const findInDB = async ({ collectionName, mongoQuery, res }) => {
   try {
     const { db, client } = await connectToDB();
 
     const data = await db.collection(collectionName).find(mongoQuery).toArray();
 
     client.close();
-    res.status(200).json({
-      status: 200,
-      message: "success",
-      data: data,
-    });
+    return { status: 200, messge: "success", data };
   } catch (err) {
     if (client) {
       client.close();
     }
-    res.status(500).json({
-      status: 500,
-      message: `An error happend.`,
-      data: err.message,
-    });
+    return { status: 500, messge: "error" };
   }
 };
 
-const findOneInDBAndSend = async ({ collectionName, mongoQuery, res }) => {
+const findOneInDB = async ({ collectionName, mongoQuery, res }) => {
   try {
     const { db, client } = await connectToDB();
     const data = await db.collection(collectionName).findOne(mongoQuery);
 
-    if (collectionName === "users" && mongoQuery) {
-      data.avatarImg = avatarImgs[data.username].avatarImg;
-    }
     client.close();
 
     if (data) {
-      res.status(200).json({
-        status: 200,
-        message: "success",
-        data: data,
-      });
+      return { status: 200, messge: "success", data };
     } else {
-      res.status(400).json({
-        status: 400,
-        message: "bad request",
-      });
+      return { status: 400, messge: "bad request" };
     }
   } catch (err) {
     if (client) {
       client.close();
     }
-    res.status(500).json({
-      status: 500,
-      message: `An error happend.`,
-      data: err.message,
-    });
+    return { status: 500, messge: "error" };
   }
 };
 module.exports = {
