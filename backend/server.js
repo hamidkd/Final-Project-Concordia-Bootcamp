@@ -3,7 +3,7 @@
 const {
   getAllCategories,
   getAllTutors,
-  getProfileByUsername,
+  getTutorProfileByUsername,
   getAllOrders,
   getOrdersByTutorUsername,
   getUserByUsername,
@@ -25,7 +25,7 @@ app.use(express.static("public"));
 //endpoints ------------------------------------------------------
 app.get("/api/categories", getAllCategories);
 app.get("/api/tutors", getAllTutors);
-app.get("/api/tutors/:username", getProfileByUsername);
+app.get("/api/tutors/:username", getTutorProfileByUsername);
 app.get("/api/orders", getAllOrders);
 app.get("/api/orders/:tutorId", getOrdersByTutorUsername);
 app.get("/api/users/:username", getUserByUsername);
