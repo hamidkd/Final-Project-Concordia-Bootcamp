@@ -18,25 +18,4 @@ const connectToDB = async () => {
   return { db, client };
 };
 
-const findInDBAndSend = async ({ collectionName, mongoQuery, res }) => {
-  try {
-    const { db, client } = await connectToDB();
-    const data = await db.collection(collectionName).find(mongoQuery).toArray();
-    console.log('data', data);
-    client.close();
-    res.status(200).json({
-      status: 200,
-      message: "success",
-      data: data,
-    });
-  } catch (err) {
-    client.close();
-    res.status(500).json({
-      status: 500,
-      message: `An error happend.`,
-      data: err.message,
-    });
-  }
-};
-
-module.exports = { connectToDB, findInDBAndSend };
+module.exports = { connectToDB };
