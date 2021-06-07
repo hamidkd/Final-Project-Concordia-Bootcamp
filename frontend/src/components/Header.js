@@ -10,6 +10,7 @@ const Header = () => {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/tutors">Tutors</Link>
+        <Link to="/tutors/fakeusername">Totur Profile</Link>
       </nav>
       <ProfileInHeader />
     </Div>

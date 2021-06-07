@@ -1,8 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Styled from "styled-components";
 
 const Collection = ({ category }) => {
-  return <Div> {category.name}</Div>;
+  return (
+    <Div>
+      <Link className="link" to={"/tutors?category=" + category.name}>
+        {category.name}
+      </Link>
+    </Div>
+  );
 };
 
 export default Collection;
@@ -21,4 +28,14 @@ justify-content: center;
 align-items: center;
 
 flex: 30%;
+
+.link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 `;

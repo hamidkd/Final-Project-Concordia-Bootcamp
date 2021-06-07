@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
 import Collection from "./Collection";
+import TutorProfile from "./TutorProfile";
 import Footer from "./Footer";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
+          </Route>
+          <Route path="/tutors/:username">
+            <TutorProfile />
           </Route>
           <Route path="/tutors">
             <Collection />
