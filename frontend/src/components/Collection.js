@@ -15,7 +15,7 @@ const Collection = () => {
 
   return (
     <Div>
-      This is tutors Collection Comp.
+      <h2>Tutors</h2>
       {tutors && (
         <ul className="tutors">
           {tutors.map((tutor, index) => {
@@ -31,13 +31,13 @@ export default Collection;
 
 const Div = Styled.div`
 
-background: lightgreen;
-padding: 1rem;
+padding-inline: 1rem;
+padding-block: 2rem;
 border-radius: 1rem;
 .tutors {
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
 `;

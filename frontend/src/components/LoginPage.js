@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Styled from "styled-components";
 import { AppContext } from "./AppProvider";
+import { themeVars } from "./GlobalStyles";
 
 import Input from "./Input";
 
@@ -26,7 +27,6 @@ const Comp = () => {
 
   return (
     <Div>
-      this is LoginPage.
       <form className="form" onSubmit={handleSumbit}>
         <Input
           name="username"
@@ -48,23 +48,24 @@ export default Comp;
 
 const Div = Styled.div`
 
-background: purple;
 padding: 1rem;
 border-radius: 1rem;
+margin: auto 0;
 
 .form {
-background: gray;
 padding: 1rem;
 border-radius: 10px;
 max-width: 40ch;
 margin: 0 auto;
+box-shadow: ${themeVars.boxShadow}
 }
 
 .button {
-    background: blue;
+    background: ${themeVars.accentColor};
     border: none;
     border-radius: 500px;
-    padding: 1rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
     width: 100%;
 }
 

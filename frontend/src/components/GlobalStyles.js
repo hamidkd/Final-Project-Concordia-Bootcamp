@@ -1,15 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
 export const themeVars = {
-  cadmiumRed: "#D80026",
-  alabamaCrimson: "#AA001E",
-  selectiveYellow: "#FDBB01",
-  orange: "#F79D00",
-  desertSand: "#E3C4A6",
-  pagePadding: "24px",
+  primaryColor: "#44318d",
+  accentColor: "#d93f87",
+  accent2Color: "#8265a7",
+  accent3Color: "#a4b3b6",
+  darkColor: "#291b3d",
+  borderRadius: "10px",
+  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+  boxShadowHover: "rgba(100, 100, 111, 0.8) 0px 7px 29px 0px",
+
   headingFont: "'Permanent Marker', Arial, Helvetica, sans-serif",
   contentFont: "'Kosugi', Arial, Helvetica, sans-serif",
-  background: "#F79D00",
 };
 
 export default createGlobalStyle`
@@ -82,7 +84,7 @@ h2,
 h3,
 label,
 button {
-  color: #fff;
+  color: ${themeVars.accentColor};
   font-family: ${themeVars.headingFont};
   font-size: 32px;
   text-align: center;

@@ -31,7 +31,7 @@ export default HomePage;
 
 const Div = Styled.div`
 
-background: lightgreen;
+/* background: lightgreen; */
 padding: 1rem;
 border-radius: 1rem;
 

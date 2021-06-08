@@ -12,10 +12,11 @@ import Footer from "./Footer";
 function App() {
   return (
     <BrowserRouter>
+    <Div>
+
       <Header />
-      <Main className="App">
+      <Main>
         <GlobalStyles />
-        This is App comp.
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -32,17 +33,26 @@ function App() {
         </Switch>
       </Main>
       <Footer />
+    </Div>
     </BrowserRouter>
   );
 }
 
 export default App;
+const Div = Styled.div`
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: stretch;
+
+`
 
 const Main = Styled.main`
-
-background: pink;
-padding: 1rem;
+flex: 1;
 border-radius: 1rem;
+padding-block: 1rem;
+display: flex;
+flex-direction: column;
 
 h2 {
   margin-bottom: 1rem;
