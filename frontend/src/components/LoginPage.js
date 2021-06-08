@@ -1,69 +1,71 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Styled from "styled-components";
+import { AppContext } from "./AppProvider";
 
-const Input = ({ name, type, required, handleChange }) => {
+import Input from "./Input";
+
+const Comp = () => {
+  const { currentUser, setCurrentUser } = useContext(AppContext);
+
+  const [formData, setFormData] = useState(null);
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSumbit = () => {
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+  };
+
   return (
     <Div>
-      <label className="label" htmlFor={name}>
-        {name}
-      </label>
-      <input
-        className="input"
-        type={type}
-        name={name}
-        placeholder={name}
-        required={required}
-        onChange={handleChange}
-      />
+      this is LoginPage.
+      <form className="form" onSubmit={handleSumbit}>
+        <Input
+          name="username"
+          type="text"
+          required={true}
+          handleChange={handleChange}
+        />
+        <Input name="password" type="password" required={true} />
+
+        <button className="button" type="submit">
+          Sign In
+        </button>
+      </form>
     </Div>
   );
 };
 
-export default Input;
+export default Comp;
 
 const Div = Styled.div`
 
+background: purple;
 padding: 1rem;
 border-radius: 1rem;
 
-  position:relative; 
-  margin-bottom:45px; 
-
-  
-input 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
-}
-input:focus 		{ outline:none; }
-
-/* LABEL ======================================= */
-label 				 {
-  color:#999; 
-  font-size:18px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:5px;
-  top:10px;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
+.form {
+background: gray;
+padding: 1rem;
+border-radius: 10px;
+max-width: 40ch;
+margin: 0 auto;
 }
 
-/* active state */
-input:focus ~ label, input:valid ~ label 		{
-  top:-20px;
-  font-size:14px;
-  color:#5264AE;
+.button {
+    background: blue;
+    border: none;
+    border-radius: 500px;
+    padding: 1rem;
+    width: 100%;
 }
-
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-  width:50%;
-}
-
 
 `;
