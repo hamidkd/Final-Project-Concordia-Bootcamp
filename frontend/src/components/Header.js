@@ -7,6 +7,7 @@ import ProfileInHeader from "./ProfileInHeader";
 const Header = () => {
   return (
     <Div>
+      <h1>KidCademy</h1>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/tutors">Tutors</Link>
@@ -22,6 +23,7 @@ export default Header;
 const Div = Styled.div`
 display: flex;
 justify-content: space-between;
+align-items: center;
 background: teal;
 padding: 1rem;
 border-radius: 1rem;
