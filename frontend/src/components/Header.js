@@ -9,8 +9,9 @@ const Header = () => {
   return (
     <StyledHeader>
       <nav>
-      <h1 className='site-title'><span>Kid</span>Cademy</h1>
-        <Link to="/">Home</Link>
+
+      
+        <Link to="/"><h1 className='site-title'><span>Kid</span>Cademy</h1></Link>
         <Link to="/tutors">Tutors</Link>
       </nav>
       <ProfileInHeader />
