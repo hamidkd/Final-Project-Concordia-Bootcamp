@@ -31,13 +31,13 @@ export default Collection;
 
 const Div = Styled.div`
 
-padding-inline: 1rem;
+padding-inline: 2rem;
 padding-block: 2rem;
 border-radius: 1rem;
 .tutors {
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 2rem;
 }
 `;

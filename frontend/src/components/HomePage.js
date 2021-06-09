@@ -38,6 +38,13 @@ border-radius: 1rem;
 .categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
+    padding-right: 2rem ;
+    padding-left: 2rem ;
+}
+
+h2 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 `;

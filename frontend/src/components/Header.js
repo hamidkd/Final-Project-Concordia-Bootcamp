@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <nav>
-      <h1>KidCademy</h1>
+      <h1 className='site-title'><span>Kid</span>Cademy</h1>
         <Link to="/">Home</Link>
         <Link to="/tutors">Tutors</Link>
       </nav>
@@ -28,6 +28,15 @@ justify-content: space-between;
 align-items: center;
 background: ${themeVars.primaryColor};
 padding: 1rem;
+font-weight: 900;
+
+.site-title {
+  font-weight: 900;
+  font-size: 1.5em;
+  span {
+    color: white;
+  }
+}
 
 nav {
     padding: 1rem;
@@ -39,6 +48,7 @@ align-items: center;
      a {
        color: white;
        text-decoration: none;
+
      }
 }
 `;

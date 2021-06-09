@@ -6,7 +6,9 @@ import { themeVars } from "./GlobalStyles";
 const Footer = () => {
   return (
     <StyledFooter>
-      <h3>KidCademy</h3>
+      <h3 className="site-title">
+        <span>Kid</span>Cademy
+      </h3>
       <div>
         <h4>About Us</h4>
 
@@ -24,9 +26,21 @@ export default Footer;
 
 const StyledFooter = Styled.footer`
 flex: 0;
-padding: 1rem;
-padding-top: 2rem;
+padding: 2rem;
+/* padding-top: 2rem; */
 background: ${themeVars.darkColor};
+
+.site-title {
+  font-weight: 900;
+  font-size: 1.5em;
+  span {
+    color: white;
+  }
+}
+
+h3 {
+  padding:2rem;
+  }
 
 div {
 color: white;

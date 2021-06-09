@@ -45,5 +45,140 @@
       },
       { "text": "not bad", "stars": { "$numberDouble": "3.5" } }
     ]
+  },
+  {
+    "_id": { "$oid": "60be6d9416d0b01f4d9c68fc" },
+    "username": "hawking",
+    "role": "tutor",
+    "firstname": "Stephen",
+    "lastname": "Hawking",
+    "bio": "Stephen William Hawking CH CBE FRS FRSA was an English theoretical physicist, cosmologist, and author who was director of research at the Centre for Theoretical Cosmology at the University of Cambridge at the time of his death.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "theory of time",
+    "category": "physics",
+    "sessionDuration": "10",
+    "email": "stevenh@email.com",
+    "phone": "64890865",
+    "reviews": [
+      {
+        "text": "My child thought the zoom call was frozen. But, eventually we found out that the tutor can't move. Also his voice was kinda like a robot.",
+        "stars": { "$numberDouble": "3.5" }
+      },
+      {
+        "text": "Thank you. This class solved my child sleeplessness.",
+        "stars": { "$numberDouble": "5" }
+      },
+      {
+        "text": "After first two sessions, my son ask me questions time and space I have no idea about",
+        "stars": { "$numberDouble": "4" }
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "60be6d9416d0b01f4d9c68fc" },
+    "username": "vangogh",
+    "role": "tutor",
+    "firstname": "Vincent",
+    "lastname": "van Gogh",
+    "bio": "Vincent Willem van Gogh was a Dutch post-impressionist painter who posthumously became one of the most famous and influential figures in the history of Western art. In a decade, he created about 2,100 artworks, including around 860 oil paintings, most of which date from the last two years of his life.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Create paintings that sell (while your alive!)",
+    "category": "painting",
+    "sessionDuration": "45",
+    "price": 25,
+    "email": "vangogh@email.com",
+    "phone": "76567890",
+    "reviews": [
+      {
+        "text": "I have a instagram filter that give me the same style as his paintings.",
+        "stars": { "$numberDouble": "1" }
+      },
+      {
+        "text": "I like his style of painting.",
+        "stars": { "$numberDouble": "4.8" }
+      },
+      {
+        "text": "My 5 year old son paintings look more real than his!",
+        "stars": { "$numberDouble": "2.3" }
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "60be6d9416d0b01f4d9c68fc" },
+    "username": "picaso",
+    "role": "tutor",
+    "firstname": "pablo",
+    "lastname": "picaso",
+    "bio": "Pablo Ruiz Picasso was a Spanish painter, sculptor, printmaker, ceramicist and theatre designer who spent most of his adult life in France.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Create paintings that sell (while your alive!)",
+    "category": "painting",
+    "sessionDuration": "35",
+    "price": "20",
+    "email": "picaso@email.com",
+    "phone": "545678",
+    "reviews": [
+      {
+        "text": "The class is good and fun. Just remember you're child will need a ruler in this class.",
+        "stars": { "$numberDouble": "5" }
+      },
+      {
+        "text": "The best painting tutor in KidCAdemy.",
+        "stars": { "$numberDouble": "4.8" }
+      }
+    ]
+  },
+  {
+    "username": "doli",
+    "role": "tutor",
+    "firstname": "salvador",
+    "lastname": "doli",
+    "bio": "Salvador Domingo Felipe Jacinto Dalí i Domènech, 1st Marquess of Dalí de Púbol gcYC was a Spanish surrealist artist renowned for his technical skill, precise draftsmanship, and the striking and bizarre images in his work. Born in Figueres, Catalonia, Dalí received his formal education in fine arts in Madrid.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Just paint it!",
+    "category": "painting",
+    "sessionDuration": "27",
+    "price": "42",
+    "email": "dali@email.com",
+    "phone": "0986800",
+    "reviews": [
+      {
+        "text": "My daughter is acting wierd after this 3 sessions. We decided to cancel other sessions",
+        "stars": { "$numberDouble": "2" }
+      },
+      {
+        "text": "Painting technics are good. But I don't understand the ideas behinde his works.",
+        "stars": { "$numberDouble": "3.5" }
+      }
+    ]
+  },
+  {
+    "username": "billgates",
+    "role": "tutor",
+    "firstname": "bill",
+    "lastname": "gates",
+    "bio": "William Henry Gates III (Biil Gates) is an American business magnate, software developer, investor, author, and philanthropist. He is the co-founder of Microsoft Corporation.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Windows Essentials and code for kids",
+    "category": "coding",
+    "sessionDuration": "30",
+    "price": "35",
+    "email": "gates@email.com",
+    "phone": "027656273",
+    "reviews": [
+      {
+        "text": "He is a nice guy but talks about bunch of different topics like Energy Policy, Vacination, Toilets and Pandemics. They're irrelevant but good to know.",
+        "stars": { "$numberDouble": "4" }
+      },
+      {
+        "text": "Really needs to update his knowlege. His coding skills go back to the time when OS was not a thing.",
+        "stars": { "$numberDouble": "3.5" }
+      }
+    ]
   }
 ]

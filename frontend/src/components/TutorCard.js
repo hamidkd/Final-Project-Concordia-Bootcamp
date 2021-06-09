@@ -1,23 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Styled from "styled-components";
+import { themeVars } from "./GlobalStyles";
 
 const TutorCard = ({ tutor }) => {
   console.log(tutor);
   // const { avatarImg } = tutor;
-  const {_id, username, firstname, lastname, role, bio, classname, category, price, sessionDuration} = tutor;
+  const {
+    _id,
+    username,
+    firstname,
+    lastname,
+    role,
+    bio,
+    classname,
+    category,
+    price,
+    sessionDuration,
+  } = tutor;
   return (
     <Div>
-      <Link className='link' to={'/tutors/' + username}>
-
-      <h3>{classname}</h3>
-      <img className='avatar'
-        src={"/images/" + username + ".jpg"}
-        alt="profile-picture"
+      <Link className="link" to={"/tutors/" + username}>
+        <img
+          className="avatar"
+          src={"/images/tutors/" + username + ".jpg"}
+          alt="profile-picture"
         />
-      <p>taught by {firstname} {lastname}</p>
-      
-        </Link>
+        <h3>{classname}</h3>
+        <p>
+          taught by {firstname} {lastname}
+        </p>
+        <p className="tag">{category}</p>
+      </Link>
     </Div>
   );
 };
@@ -50,4 +64,15 @@ h3 {
   border-radius: 50%
 }
 
+
+.tag {
+  font-size: 0.8em;
+  padding: 0.3em;
+  padding-inline: 0.8em;
+  border-radius: 100px;
+  color: rgba(0, 0, 0, 0.5);
+  background: ${themeVars.accent2Color};
+  opacity: 0.8;
+  display: inline;
+}
 `;
