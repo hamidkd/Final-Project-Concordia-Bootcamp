@@ -5,15 +5,15 @@ const tutorImgs = require("./data/tutorImgs");
 const { connectToDB } = require("./dbConnector");
 
 const getAllCategories = async (req, res) => {
-  findInDB({ collectionName: "categories", mongoQuery: null, res });
+  const result = await findInDB({ collectionName: "categories", mongoQuery: null });
+  res.status(result.status).json(result);
 };
+
 const getAllTutors = async (req, res) => {
   let result = await findInDB({
     collectionName: "tutors",
     mongoQuery: null,
   });
-
-  console.log(result.data[0]);
 
   // if (result.status === 200) {
   //   const newData = result.data.map((tutor) => {
