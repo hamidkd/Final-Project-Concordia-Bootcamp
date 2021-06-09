@@ -50,7 +50,6 @@ justify-content: stretch;
 const Main = Styled.main`
 flex: 1;
 border-radius: 1rem;
-padding-block: 1rem;
 display: flex;
 flex-direction: column;
 

@@ -10,11 +10,15 @@ export const themeVars = {
   boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
   boxShadowHover: "rgba(100, 100, 111, 0.8) 0px 7px 29px 0px",
 
-  headingFont: "'Permanent Marker', Arial, Helvetica, sans-serif",
-  contentFont: "'Kosugi', Arial, Helvetica, sans-serif",
+  headingFont: "Poppins,'Permanent Marker', Arial, Helvetica, sans-serif",
+  contentFont: "Poppins,'Kosugi', Arial, Helvetica, sans-serif",
 };
 
 export default createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;900&display=swap');
+
+
+
   *,
   *:before,
   *:after {

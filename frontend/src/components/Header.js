@@ -8,11 +8,10 @@ import ProfileInHeader from "./ProfileInHeader";
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>KidCademy</h1>
       <nav>
+      <h1>KidCademy</h1>
         <Link to="/">Home</Link>
         <Link to="/tutors">Tutors</Link>
-        <Link to="/tutors/fakeusername">Totur Profile</Link>
       </nav>
       <ProfileInHeader />
     </StyledHeader>
@@ -34,6 +33,7 @@ nav {
     padding: 1rem;
     color: white;
     display: flex;
+align-items: center;
     gap: 2rem;
      
      a {

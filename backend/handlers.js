@@ -15,26 +15,26 @@ const getAllTutors = async (req, res) => {
 
   console.log(result.data[0]);
 
-  if (result.status === 200) {
-    const newData = result.data.map((tutor) => {
-      tutor.avatarImg = tutorImgs[tutor.username].avatarImg;
-      return tutor;
-    });
-  }
+  // if (result.status === 200) {
+  //   const newData = result.data.map((tutor) => {
+  //     tutor.avatarImg = tutorImgs[tutor.username].avatarImg;
+  //     return tutor;
+  //   });
+  // }
 
   res.status(result.status).json(result);
 };
 
 const getTutorProfileByUsername = async (req, res) => {
-  const result = findOneInDB({
+  const result = await findOneInDB({
     collectionName: "tutors",
     mongoQuery: { username: req.params.username.toLowerCase() },
   });
-  if (result.status === 200) {
-    result.data.avatarImg = tutorImgs[result.data.username].avatarImg;
-  }
+  // if (result.status === 200) {
+  //   result.data.avatarImg = tutorImgs[result.data.username].avatarImg;
+  // }
 
-  res.status((await result).status).json(result);
+  res.status(result.status).json(result);
 };
 
 const getAllOrders = async (req, res) => {

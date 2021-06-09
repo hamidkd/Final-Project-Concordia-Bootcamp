@@ -21,7 +21,7 @@ const HomePage = () => {
         </ul>
       </section>
       <section>
-        <h2>Some Features</h2>
+        <h2>Featured Classes</h2>
       </section>
     </Div>
   );
@@ -32,7 +32,6 @@ export default HomePage;
 const Div = Styled.div`
 
 /* background: lightgreen; */
-padding: 1rem;
 border-radius: 1rem;
 
 

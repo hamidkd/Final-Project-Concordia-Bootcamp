@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import Styled from "styled-components";
 
 const TutorProfile = () => {
+  const { username } = useParams();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/tutors/" + username)
+      .then((res) => res.json())
+      .then((json) => {
+        // if (json.status === 200) {
+          console.log(json);
+          setUser(json.data);
+        // }
+      });
+  }, [username]);
+
+  console.log(user);
   return (
     <Div>
-      <h2>Tutor name</h2>
-      <p>description here</p>
-      <img alt='profile-picture' src='tutor-photo-1.jpg' />
+      {user && (
+        <>
+          <h2></h2>
+          <p>description here</p>
+          <img alt="profile-picture" src="tutor-photo-1.jpg" />
+        </>
+      )}
     </Div>
   );
 };

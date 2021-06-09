@@ -12,7 +12,6 @@ export const AppProvider = ({ children }) => {
       .then((json) => setCategories(json.data));
   }, []);
 
-  console.log("cats", categories);
   return (
     <AppContext.Provider value={{ currentUser, setCurrentUser, categories }}>
       {children}
