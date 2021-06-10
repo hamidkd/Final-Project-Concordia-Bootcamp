@@ -12,14 +12,14 @@ const Header = () => {
 const responseSuccessGoogle = (res) => {
 console.log('RES from Google Login', res);
 
-// fetch("/api/googleLogin", {
-//   method: "POST",
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify(res.tokenId),
-// }).then(res => console.log(res));
+  fetch("/api/googleLogin", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(res.tokenId),
+  }).then(res => console.log(res));
   
 
 }
