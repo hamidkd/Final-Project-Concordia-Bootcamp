@@ -180,5 +180,90 @@
         "stars": { "$numberDouble": "3.5" }
       }
     ]
+  },
+  {
+    "username": "eich",
+    "role": "tutor",
+    "firstname": "brendan",
+    "lastname": "eich",
+    "bio": "Brendan Eich is an American technologist and creator of the JavaScript programming language. He co-founded the Mozilla project, the Mozilla Foundation and the Mozilla Corporation, and served as the Mozilla Corporation's chief technical officer and, briefly, as its chief executive officer.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Create a programming language in 7 days",
+    "category": "coding",
+    "sessionDuration": "20",
+    "price": "25",
+    "email": "eich@email.com",
+    "phone": "0876567890",
+    "reviews": [
+      {
+        "text": "He's too fast!",
+        "stars": { "$numberDouble": "2" }
+      }
+    ]
+  },
+  {
+    "username": "ada",
+    "role": "tutor",
+    "firstname": "ada",
+    "lastname": "lovelace",
+    "bio": "Augusta Ada King, Countess of Lovelace was an English mathematician and writer, chiefly known as first computer programmer for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Think like a programmer",
+    "category": "coding",
+    "sessionDuration": "15",
+    "price": "25",
+    "email": "ada@email.com",
+    "phone": "89404322",
+    "reviews": [
+      {
+        "text": "Her technics is old fashion but I liked her mindset!",
+        "stars": { "$numberDouble": "4" }
+      }
+    ]
+  },
+  {
+    "username": "shakespeare",
+    "role": "tutor",
+    "firstname": "william",
+    "lastname": "shakespeare",
+    "bio": "William Shakespeare was an English playwright, poet, and actor, widely regarded as the greatest writer in the English language and the world's greatest dramatist. He is often called England's national poet and the 'Bard of Avon'. ",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "A Dramatic English Class",
+    "category": "languages",
+    "sessionDuration": "15",
+    "price": "25",
+    "email": "william@email.com",
+    "phone": "4689876543",
+    "reviews": [
+      {
+        "text": "Speaks very vaguely. Hard to understand what he means!",
+        "stars": { "$numberDouble": "2.5" }
+      }
+    ]
+  },
+  {
+    "username": "jackson",
+    "role": "tutor",
+    "firstname": "Michael",
+    "lastname": "Jackson",
+    "bio": "Michael Joseph Jackson was an American singer, songwriter, and dancer. Dubbed the "King of Pop", he is regarded as one of the most significant cultural figures of the 20th century.",
+    "avatarImg": "",
+    "bannerImg": "",
+    "classname": "Beat it",
+    "category": "Dance",
+    "sessionDuration": "10",
+    "price": "45",
+    "email": "jakson@email.com",
+    "phone": "3455890345",
+    "reviews": [
+      {
+        "text": "Be Cautious about tutor you choose. My son fell on ground a lot follwing his moves.",
+        "stars": { "$numberDouble": "2.5" }
+      }
+    ]
   }
+
 ]
