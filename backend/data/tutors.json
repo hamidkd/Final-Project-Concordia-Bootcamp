@@ -249,7 +249,7 @@
     "role": "tutor",
     "firstname": "Michael",
     "lastname": "Jackson",
-    "bio": "Michael Joseph Jackson was an American singer, songwriter, and dancer. Dubbed the "King of Pop", he is regarded as one of the most significant cultural figures of the 20th century.",
+    "bio": "Michael Joseph Jackson was an American singer, songwriter, and dancer. Dubbed the 'King of Pop', he is regarded as one of the most significant cultural figures of the 20th century.",
     "avatarImg": "",
     "bannerImg": "",
     "classname": "Beat it",
@@ -265,5 +265,4 @@
       }
     ]
   }
-
 ]

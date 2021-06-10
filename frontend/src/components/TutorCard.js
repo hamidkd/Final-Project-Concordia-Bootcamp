@@ -19,8 +19,9 @@ const TutorCard = ({ tutor }) => {
     sessionDuration,
   } = tutor;
   return (
-    <Div>
-      <Link className="link" to={"/tutors/" + username}>
+      <Div>
+    <Link className="link" to={"/tutors/" + username}>
+        <div className='wrapper'>
         <img
           className="avatar"
           src={"/images/tutors/" + username + ".jpg"}
@@ -31,18 +32,30 @@ const TutorCard = ({ tutor }) => {
           taught by {firstname} {lastname}
         </p>
         <p className="tag">{category}</p>
-      </Link>
-    </Div>
+    </div>
+    </Link>
+      </Div>
   );
 };
 
 export default TutorCard;
 
 const Div = Styled.div`
+
+
 width: 100%;
 background: white;
 padding: 1rem;
+padding-top: 1.5rem;
 border-radius: 1rem;
+
+.wrapper {
+
+display: flex;
+flex-direction: column;
+text-decoration: none;
+gap: 1rem;
+}
 
 min-height: 200px;
 box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -53,6 +66,7 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 h3 {
   text-align: left;
+  line-height: 1.3em;
 }
 &:hover {
   box-shadow: rgba(100, 100, 111, 0.8) 0px 7px 29px 0px;
@@ -61,9 +75,9 @@ h3 {
 .avatar {
   background: yellow;
   max-width: 10rem;
-  border-radius: 50%
+  border-radius: 50%;
+  align-self: center; 
 }
-
 
 .tag {
   font-size: 0.8em;

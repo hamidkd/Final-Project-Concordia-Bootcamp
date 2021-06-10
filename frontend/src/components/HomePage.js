@@ -31,9 +31,6 @@ export default HomePage;
 
 const Div = Styled.div`
 
-/* background: lightgreen; */
-border-radius: 1rem;
-
 
 .categories {
     display: flex;
@@ -43,8 +40,5 @@ border-radius: 1rem;
     padding-left: 2rem ;
 }
 
-h2 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
+
 `;

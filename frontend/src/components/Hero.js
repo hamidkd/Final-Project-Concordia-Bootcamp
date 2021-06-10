@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Styled from "styled-components";
 import { themeVars } from "./GlobalStyles";
 
@@ -6,6 +7,7 @@ const Hero = () => {
   return (
     <Section>
       <h2 className='hero-title'>Private Online Classes for kids</h2>
+      <Link className='cta-button' to='/tutors' >Select a class</Link>
     </Section>
   );
 };
