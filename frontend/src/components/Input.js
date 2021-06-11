@@ -2,7 +2,16 @@ import React from "react";
 import Styled from "styled-components";
 import { themeVars } from "./GlobalStyles";
 
-const Input = ({ title, name, type, required, changeHandler, min, max, steps }) => {
+const Input = ({
+  title,
+  name,
+  type,
+  required,
+  changeHandler,
+  min,
+  max,
+  steps,
+}) => {
   return (
     <Div>
       <input
@@ -31,6 +40,7 @@ const Div = Styled.div`
   position:relative; 
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
 input	{
   font-size: 1.2em;
@@ -39,6 +49,7 @@ input	{
   border:none;
   border-radius: 0.5rem;
   background: ghostwhite;
+  overflow: hidden;
 }
 
 input:focus { outline: 2px solid ${themeVars.accent2Color}; }
@@ -50,6 +61,7 @@ input::placeholder {
 
 
 label {
+  text-align: left;
   pointer-events: none;
   color:#999; 
   font-size:1.2em;
@@ -59,6 +71,8 @@ label {
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
+  overflow: hidden;
+  
 }
 
 input:not(:placeholder-shown) + label {
