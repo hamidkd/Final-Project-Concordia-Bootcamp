@@ -1,25 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Styled from "styled-components";
+import { FilterContext } from "./FilterProvider";
+import FilterPanel from "./FilterPanel";
 import Loading from "./Loading";
 
 import TutorCard from "./TutorCard";
 
 const Collection = () => {
-  const [tutors, setTutors] = useState(null);
-  useEffect(() => {
-    //fetch all tutors
-    console.log("here");
-    fetch("/api/tutors")
-      .then((res) => res.json())
-      .then((json) => setTutors(json.data));
-  }, []);
+  const { filteredItems } = useContext(FilterContext);
 
   return (
     <Div>
       <h2>Tutors</h2>
-      {tutors ? (
+      <FilterPanel />
+      {filteredItems ? (
         <ul className="tutors">
-          {tutors.map((tutor, index) => {
+          {filteredItems.map((tutor, index) => {
             return <TutorCard tutor={tutor} key={"tutor-" + index} />;
           })}
         </ul>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import Review from "./Review";
 
@@ -32,7 +33,7 @@ const TutorProfile = () => {
           />
           <p>{tutor.bio}</p>
           <p>price: {tutor.price}$</p>
-          <button>Get a class</button>
+          <Link className="primary-button" to="/reserve-class">Get a class</Link>
           <h3>Reviews:</h3>
           {tutor.reviews.map((review) => {
             return <Review review={review} />;

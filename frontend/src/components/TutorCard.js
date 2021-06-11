@@ -4,8 +4,7 @@ import Styled from "styled-components";
 import { themeVars } from "./GlobalStyles";
 
 const TutorCard = ({ tutor }) => {
-  console.log(tutor);
-  // const { avatarImg } = tutor;
+  
   const {
     _id,
     username,

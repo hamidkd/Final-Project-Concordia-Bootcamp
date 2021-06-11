@@ -6,6 +6,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import ReserveClass from "./ReserveClass";
+import FilterProvider from "./FilterProvider";
 import Collection from "./Collection";
 import TutorProfile from "./TutorProfile";
 import Footer from "./Footer";
@@ -25,11 +27,16 @@ function App() {
             <Route exact path="/login">
               <LoginPage />
             </Route>
+            <Route exact path="/reserve-class">
+              <ReserveClass />
+            </Route>
             <Route path="/tutors/:username">
               <TutorProfile />
             </Route>
             <Route path="/tutors">
-              <Collection />
+              <FilterProvider>
+                <Collection />
+              </FilterProvider>
             </Route>
           </Switch>
         </Main>
