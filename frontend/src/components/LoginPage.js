@@ -90,14 +90,11 @@ const Div = Styled.div`
 padding: 1rem;
 border-radius: 1rem;
 margin: auto 0;
+display: flex;
+flex-direction: column;
+align-items: center;
 
-.form {
-padding: 1rem;
-border-radius: 10px;
-max-width: 40ch;
-margin: 0 auto;
-box-shadow: ${themeVars.boxShadow}
-}
+
 
 .button {
     background: ${themeVars.accentColor};

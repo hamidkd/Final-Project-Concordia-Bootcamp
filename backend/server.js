@@ -7,6 +7,7 @@ const {
   getTutorProfileByUsername,
   getAllOrders,
   getOrdersByTutorUsername,
+  createOrder,
   getUserByUsername,
 } = require("./handlers");
 
@@ -29,7 +30,8 @@ app.get("/api/categories", getAllCategories);
 app.get("/api/tutors", getAllTutors);
 app.get("/api/tutors/:username", getTutorProfileByUsername);
 app.get("/api/orders", getAllOrders);
-app.get("/api/orders/:tutorId", getOrdersByTutorUsername);
+app.get("/api/orders/:tutorUsername", getOrdersByTutorUsername);
+app.post("/api/orders/:tutorUsername", createOrder);
 app.get("/api/users/:username", getUserByUsername);
 
 // this is the catch all endpoint ---------------------------------

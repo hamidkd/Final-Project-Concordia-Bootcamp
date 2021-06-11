@@ -68,12 +68,45 @@ const getTutorProfileByUsername = async (req, res) => {
 
 const getAllOrders = async (req, res) => {
   console.log("Fake Get All Orders");
+  res.status(200).json({ status: 200, messge: "fake response" });
 };
 const getOrdersByTutorUsername = async (req, res) => {
   console.log("Fake Get orders by tutor username");
+  res.status(200).json({ status: 200, messge: "fake response" });
 };
+
+const createOrder = async (req, res) => {
+
+  const { firstname, lastname, age, email, phone, numberOfSessions } = req.body;
+  if (!firstname || !lastname  || !email || !phone) {
+    res
+    .status(400)
+    .json({
+      status: 400,
+      message: "Please provide all required information.",
+    });
+    return;
+  }
+  
+  console.log('hereOOO');
+  const { db, client } = await connectToDB();
+  const { tutorUsername } = req.params;
+  
+  const mongoQuery = { username: tutorUsername };
+  const insertQuery = {
+    $push: { reservedClasses: { numberOfSessions, firstname, lastname, age, email, phone } },
+  };
+  
+  await db.collection("tutors").updateOne(mongoQuery, insertQuery);
+
+  client.close();
+
+  res.status(200).json({ status: 200, message: "reservation made" });
+};
+
 const getUserByUsername = async (req, res) => {
   console.log("Fake Get user by username");
+  res.status(200).json({ status: 200, messge: "fake response" });
 };
 
 const findInDB = async ({ collectionName, mongoQuery, res }) => {
@@ -118,5 +151,6 @@ module.exports = {
   getTutorProfileByUsername,
   getAllOrders,
   getOrdersByTutorUsername,
+  createOrder,
   getUserByUsername,
 };

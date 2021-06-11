@@ -54,6 +54,9 @@ padding: 1.5rem;
 padding-top: 1.5rem;
 border-radius: 1rem;
 
+min-height: 200px;
+box-shadow: ${themeVars.boxShadow};
+
 .wrapper {
 
 display: flex;
@@ -65,8 +68,6 @@ gap: 1rem;
 height: 100%;
 }
 
-min-height: 200px;
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 .link {
   text-decoration: none;

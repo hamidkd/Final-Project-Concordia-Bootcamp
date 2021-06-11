@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Styled from "styled-components";
+import { themeVars } from "./GlobalStyles";
 
 let name = '';
 
@@ -26,6 +27,7 @@ background-size: cover;
 filter: saturate(30%);
 padding: 1rem;
 border-radius: 1rem;
+box-shadow: ${themeVars.boxShadow};
 
 min-height: 300px;
 

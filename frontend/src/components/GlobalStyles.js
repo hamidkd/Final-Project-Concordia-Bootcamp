@@ -52,7 +52,7 @@ h2 {
   padding-bottom: 3rem;
 }
 
-button, .button, .primary-button, .cta-button {
+button, .button, .primary-button, .cta-button , .big-button {
   border: none;
   border-radius: 600px;
   padding-inline: 1em;
@@ -63,14 +63,15 @@ button, .button, .primary-button, .cta-button {
 
   background-color: white;
   color: ${themeVars.primaryColor};
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
-.primary-button, .cta-button {
+.primary-button, .cta-button , .big-button {
   background-color: ${themeVars.primaryColor};
   color: white;
+}
+.big-button {
   font-size: 2rem;
 }
-
 
 `;

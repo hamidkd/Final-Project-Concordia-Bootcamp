@@ -7,6 +7,7 @@ import Header from "./Header";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import ReserveClass from "./ReserveClass";
+import Confirmation from "./Confirmation";
 import FilterProvider from "./FilterProvider";
 import Collection from "./Collection";
 import TutorProfile from "./TutorProfile";
@@ -30,6 +31,9 @@ function App() {
             <Route exact path="/reserve-class">
               <ReserveClass />
             </Route>
+            <Route exact path="/reserve-class/confirmation">
+              <Confirmation />
+            </Route>
             <Route path="/tutors/:username">
               <TutorProfile />
             </Route>
@@ -37,6 +41,9 @@ function App() {
               <FilterProvider>
                 <Collection />
               </FilterProvider>
+            </Route>
+            <Route path="*">
+              <p>404 PAGE NOT FOUND</p>
             </Route>
           </Switch>
         </Main>

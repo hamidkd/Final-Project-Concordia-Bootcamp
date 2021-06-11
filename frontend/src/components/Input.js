@@ -1,20 +1,24 @@
 import React from "react";
 import Styled from "styled-components";
+import { themeVars } from "./GlobalStyles";
 
-const Input = ({ name, type, required, handleChange }) => {
+const Input = ({ title, name, type, required, changeHandler, min, max, steps }) => {
   return (
     <Div>
-      <label className="label" htmlFor={name}>
-        {name}
-      </label>
       <input
         className="input"
         type={type}
         name={name}
         placeholder={name}
         required={required}
-        onChange={handleChange}
+        onChange={changeHandler}
+        min={min}
+        max={max}
+        steps={steps}
       />
+      <label className="label" htmlFor={name}>
+        {title ? title : name}
+      </label>
     </Div>
   );
 };
@@ -23,47 +27,42 @@ export default Input;
 
 const Div = Styled.div`
 
-padding: 1rem;
-border-radius: 1rem;
 
   position:relative; 
-  margin-bottom:45px; 
+  display: flex;
+  flex-direction: column;
 
-  
-input 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
+input	{
+  font-size: 1.2em;
+  padding: 1rem;
   display:block;
-  width:300px;
   border:none;
-  border-bottom:1px solid #757575;
+  border-radius: 0.5rem;
+  background: ghostwhite;
 }
-input:focus 		{ outline:none; }
 
-/* LABEL ======================================= */
-label 				 {
+input:focus { outline: 2px solid ${themeVars.accent2Color}; }
+
+input::placeholder {
+  color: transparent;
+}
+
+
+
+label {
+  pointer-events: none;
   color:#999; 
-  font-size:18px;
-  font-weight:normal;
+  font-size:1.2em;
   position:absolute;
-  pointer-events:none;
-  left:5px;
-  top:10px;
+  left: 1rem;
+  top: 1.25rem;
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
 }
 
-/* active state */
-input:focus ~ label, input:valid ~ label 		{
+input:not(:placeholder-shown) + label {
   top:-20px;
-  font-size:14px;
-  color:#5264AE;
-}
-
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-  width:50%;
-}
-
-
+  font-size:1em;
+  color: ${themeVars.accent2Color};}
 `;
