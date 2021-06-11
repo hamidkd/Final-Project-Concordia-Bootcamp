@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Styled from "styled-components";
+import Loading from "./Loading";
 
 import TutorCard from "./TutorCard";
 
@@ -16,12 +17,14 @@ const Collection = () => {
   return (
     <Div>
       <h2>Tutors</h2>
-      {tutors && (
+      {tutors ? (
         <ul className="tutors">
           {tutors.map((tutor, index) => {
             return <TutorCard tutor={tutor} key={"tutor-" + index} />;
           })}
         </ul>
+      ) : (
+        <Loading />
       )}
     </Div>
   );
