@@ -25,7 +25,7 @@ const handleGoogleLogin = async (req, res) => {
       if (email_verified) {
         const result = await findOneInDB({
           collectionName: "tutors",
-          mongoQuery: { email }
+          mongoQuery: { email },
         });
         if (result.data) {
           res.status(200).json(result);
@@ -48,15 +48,8 @@ const getAllCategories = async (req, res) => {
 const getAllTutors = async (req, res) => {
   let result = await findInDB({
     collectionName: "tutors",
-    mongoQuery: null,
+    mongoQuery: { role: "tutor" },
   });
-
-  // if (result.status === 200) {
-  //   const newData = result.data.map((tutor) => {
-  //     tutor.avatarImg = tutorImgs[tutor.username].avatarImg;
-  //     return tutor;
-  //   });
-  // }
 
   res.status(result.status).json(result);
 };
