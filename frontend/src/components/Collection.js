@@ -37,10 +37,12 @@ border-radius: 1rem;
 .tutors {
     padding-right: 2rem ;
     padding-left: 2rem ;
+    padding-block: 3rem;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
+  gap: 3rem;
+  justify-items: center;
 
   @media screen and ( max-width: 1080px) {
 

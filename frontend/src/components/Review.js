@@ -15,7 +15,7 @@ export default Review;
 
 const Div = Styled.div`
 
-background: lightgray;
+background: aliceblue;
 padding: 1rem;
 border-radius: 1rem;
 

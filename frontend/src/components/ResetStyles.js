@@ -57,6 +57,7 @@ export default createGlobalStyle`
       line-height: 1;
       margin: 0;
   }
+  p {line-height: 1.4;}
   ol, ul {
       list-style: none;
   }
