@@ -40,7 +40,7 @@ const Div = Styled.div`
   position:relative; 
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 
 input	{
   font-size: 1.2em;
