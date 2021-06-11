@@ -1,11 +1,47 @@
 "use strict";
 
 const tutorImgs = require("./data/tutorImgs");
+require("dotenv").config();
+const { OAuth2Client } = require("google-auth-library");
+
+const GOOGLE_OAUTH2_CLIENT_ID = process.env.GOOGLE_OAUTH2_CLIENT_ID;
+console.log("OOOOOO", GOOGLE_OAUTH2_CLIENT_ID);
+
+const oAuth2Client = new OAuth2Client(GOOGLE_OAUTH2_CLIENT_ID);
 
 const { connectToDB } = require("./dbConnector");
 
+const handleGoogleLogin = async (req, res) => {
+  const { tokenId } = req.body;
+  console.log("inside google login handler");
+  console.log("tokenId", req.body);
+
+  oAuth2Client
+    .verifyIdToken({ idToken: tokenId, audience: GOOGLE_OAUTH2_CLIENT_ID })
+    .then(async (response) => {
+      console.log("response payloOOOOOOOOOOOd", response.payload);
+      const { email, email_verified, name } = response.payload;
+
+      if (email_verified) {
+        const result = await findOneInDB({
+          collectionName: "tutors",
+          mongoQuery: { email }
+        });
+        if (result.data) {
+          res.status(200).json(result);
+        } else {
+          //create a user with that name
+          res.status(400).json({ status: 400, message: "no such a user" });
+        }
+      }
+    });
+};
+
 const getAllCategories = async (req, res) => {
-  const result = await findInDB({ collectionName: "categories", mongoQuery: null });
+  const result = await findInDB({
+    collectionName: "categories",
+    mongoQuery: null,
+  });
   res.status(result.status).json(result);
 };
 
@@ -83,6 +119,7 @@ const findOneInDB = async ({ collectionName, mongoQuery, res }) => {
   }
 };
 module.exports = {
+  handleGoogleLogin,
   getAllCategories,
   getAllTutors,
   getTutorProfileByUsername,

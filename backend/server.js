@@ -1,6 +1,7 @@
 "use strict";
 
 const {
+  handleGoogleLogin,
   getAllCategories,
   getAllTutors,
   getTutorProfileByUsername,
@@ -23,6 +24,7 @@ app.use(bodyParser());
 app.use(express.static("public"));
 
 //endpoints ------------------------------------------------------
+app.post("/api/googlelogin", handleGoogleLogin);
 app.get("/api/categories", getAllCategories);
 app.get("/api/tutors", getAllTutors);
 app.get("/api/tutors/:username", getTutorProfileByUsername);

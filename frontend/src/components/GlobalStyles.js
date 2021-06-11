@@ -34,6 +34,11 @@ input {
   font-family: ${themeVars.contentFont};
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 h2 {
   font-size: 2rem;
 }
