@@ -1,12 +1,20 @@
 import React from "react";
 import Styled from "styled-components";
+import ReactStars from 'react-rating-stars-component';
 
 const Review = ({ review }) => {
   const { text, stars } = review;
   return (
     <Div>
       <p>{text}</p>
-      <p>stars" {stars}</p>
+      <ReactStars
+    count={5}
+    value={stars}
+    edit={false}
+    size={24}
+    isHalf={true}
+    activeColor="#ffd700"
+  />
     </Div>
   );
 };

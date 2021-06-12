@@ -17,7 +17,7 @@ const Header = () => {
             <span>Kid</span>Cademy
           </h1>
         </Link>
-        <Link to="/tutors">Tutors</Link>
+        <Link to="/tutors">Classes</Link>
       </nav>
 
        <ProfileInHeader />

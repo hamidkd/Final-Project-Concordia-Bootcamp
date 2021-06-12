@@ -26,27 +26,35 @@ const TutorProfile = () => {
     <Div>
       {tutor && (
         <>
-          <img
-            className="avatar"
-            src={"/images/tutors/" + tutor.username + ".jpg"}
-            alt="profile-picture"
-          />
-          <div className='bio'>
-          <h2>About {tutor.firstname + " " + tutor.lastname}</h2>
-          <p>{tutor.bio}</p>
-          </div>
-          <p>price: {tutor.price}$</p>
-          <div className="buttons">
-            <Link className="primary-button" to={"/reserve-class?tutor=" + tutor.username}>
-              Reserve a class
-            </Link>
-          </div>
-          <div className="reviews">
-            <h3>Reviews:</h3>
-            {tutor.reviews.map((review) => {
-              return <Review review={review} />;
-            })}
-          </div>
+          <section>
+            <h2 className="class-title">{tutor.classname}</h2>
+          </section>
+          <section>
+            <img
+              className="avatar"
+              src={"/images/tutors/" + tutor.username + ".jpg"}
+              alt="profile-picture"
+            />
+            <div className="bio">
+              <h2>About {tutor.firstname + " " + tutor.lastname}</h2>
+              <p>{tutor.bio}</p>
+            </div>
+            <p>price: {tutor.price}$</p>
+            <div className="buttons">
+              <Link
+                className="primary-button"
+                to={"/reserve-class?tutor=" + tutor.username}
+              >
+                Reserve a class
+              </Link>
+            </div>
+            <div className="reviews">
+              <h3 className="reviews-title">Reviews:</h3>
+              {tutor.reviews.map((review) => {
+                return <Review review={review} />;
+              })}
+            </div>
+          </section>
         </>
       )}
     </Div>
@@ -57,14 +65,26 @@ export default TutorProfile;
 
 const Div = Styled.div`
 
-padding-block: 5rem;
+padding-bottom: 5rem;
 padding-inline: 2rem;
 border-radius: 1rem;
 display: flex;
 flex-direction: column;
-gap: 1rem;
+/* gap: 1rem; */
 max-width: 50rem;
 margin: 0 auto;
+
+section {}
+.class-title {
+  /* color: white; */
+  font-size: 3.5em;
+  text-align: left;
+  line-height: 1.3;
+  padding-bottom: 0;
+ 
+  /* padding: 2rem; */
+  border-radius: 1.5rem 1.5rem 0 0;
+}
 
 .avatar {
   margin: 0 auto;
@@ -94,6 +114,7 @@ margin: 0 auto;
 }
 
 .reviews {
+  margin-top: 2rem;
   border-top: 1px solid lightgray;
   padding-top: 1rem;
   display: flex;
