@@ -34,7 +34,9 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 background: ${themeVars.primaryColor};
-padding: 1rem;
+/* padding: 1rem; */
+min-height: 6rem;
+padding-inline: 1rem ;
 font-weight: 900;
 
 .site-title {

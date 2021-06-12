@@ -74,7 +74,7 @@ const Comp = () => {
       </form> */}
       <GoogleLogin
           clientId="970981967092-8kp9jcceesje46te9fnr24hq2mff22ad.apps.googleusercontent.com"
-          buttonText="Login"
+          buttonText="Login with you google account"
           onSuccess={responseSuccessGoogle}
           onFailure={responseErrorGoogle}
           cookiePolicy={"single_host_origin"}
