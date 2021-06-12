@@ -15,6 +15,7 @@ const TutorCard = ({ tutor }) => {
     category,
     price,
     sessionDuration,
+    numberOfSessions
   } = tutor;
   return (
     <Div>
@@ -38,8 +39,8 @@ const TutorCard = ({ tutor }) => {
             </span>
           </p>
           <p className="class-info">
-            <span className="price">${price}</span>
-            <span className="session">{sessionDuration} minutes</span>
+            <span className="price">${price * numberOfSessions}</span>
+            <span className="session">{numberOfSessions} {Number(numberOfSessions) > 1 ? "sessions" : "session"  }</span>
           </p>
         </div>
       </Link>
@@ -55,15 +56,15 @@ const Div = Styled.div`
 width: 100%;
 max-width: 20rem;
 background: white;
-padding: 1.5rem;
-padding-top: 1.5rem;
 border-radius: 1rem;
 
 min-height: 200px;
 box-shadow: ${themeVars.boxShadow};
 
+
 .wrapper {
 
+padding: 1.5rem;
 display: flex;
 flex-direction: column;
 text-decoration: none;

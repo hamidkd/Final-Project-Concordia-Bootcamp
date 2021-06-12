@@ -29,32 +29,34 @@ const TutorProfile = () => {
           <section>
             <h2 className="class-title">{tutor.classname}</h2>
           </section>
-          <section>
+            <section className="bio">
             <img
               className="avatar"
               src={"/images/tutors/" + tutor.username + ".jpg"}
               alt="profile-picture"
             />
-            <div className="bio">
               <h2>About {tutor.firstname + " " + tutor.lastname}</h2>
               <p>{tutor.bio}</p>
-            </div>
-            <p>price: {tutor.price}$</p>
+            </section>
+            <section>
+              <p>price: {tutor.price}$</p>
+              <p>Session Duration: {tutor.sessionDuration}$</p>
+              <p>Sessions: {tutor.numberOfSessions}$</p>
+              </section>
             <div className="buttons">
               <Link
                 className="primary-button"
                 to={"/reserve-class?tutor=" + tutor.username}
               >
-                Reserve a class
+                Buy Now
               </Link>
             </div>
-            <div className="reviews">
+            <section className="reviews">
               <h3 className="reviews-title">Reviews:</h3>
               {tutor.reviews.map((review) => {
                 return <Review review={review} />;
               })}
-            </div>
-          </section>
+            </section>
         </>
       )}
     </Div>
@@ -74,7 +76,13 @@ flex-direction: column;
 max-width: 50rem;
 margin: 0 auto;
 
-section {}
+section {
+  border-top: 1px solid lightgray;
+}
+
+.bio {
+  border: none;
+}
 .class-title {
   /* color: white; */
   font-size: 3.5em;
@@ -115,7 +123,6 @@ section {}
 
 .reviews {
   margin-top: 2rem;
-  border-top: 1px solid lightgray;
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
