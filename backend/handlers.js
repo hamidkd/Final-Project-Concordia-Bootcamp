@@ -76,28 +76,32 @@ const getOrdersByTutorUsername = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-
   const { firstname, lastname, age, email, phone, numberOfSessions } = req.body;
-  if (!firstname || !lastname  || !email || !phone) {
-    res
-    .status(400)
-    .json({
+  if (!firstname || !lastname || !email || !phone) {
+    res.status(400).json({
       status: 400,
       message: "Please provide all required information.",
     });
     return;
   }
-  
-  console.log('hereOOO');
+
   const { db, client } = await connectToDB();
   const { tutorUsername } = req.params;
-  
-  const mongoQuery = { username: tutorUsername };
+
+  // const mongoQuery = { username: tutorUsername };
   const insertQuery = {
-    $push: { reservedClasses: { numberOfSessions, firstname, lastname, age, email, phone } },
+    $set: {
+      tutorUsername: username,
+      numberOfSessions,
+      firstname,
+      lastname,
+      age,
+      email,
+      phone,
+    },
   };
-  
-  await db.collection("tutors").updateOne(mongoQuery, insertQuery);
+
+  await db.collection("classResevation"). insertOne(insertQuery);
 
   client.close();
 

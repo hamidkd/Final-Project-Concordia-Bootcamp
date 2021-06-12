@@ -6,7 +6,6 @@ const Loading = () => {
   return (
     <Div className="spinner-div">
       <CgSpinner size="60" className="spinner" />
-      LOADING!!!
     </Div>
   );
 };

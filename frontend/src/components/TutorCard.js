@@ -27,10 +27,15 @@ const TutorCard = ({ tutor }) => {
           />
           <h3>{classname}</h3>
           <p className="tutor">
-            taught by {firstname} {lastname}
+            taught by{" "}
+            <span className="tutor-name">
+              {firstname} {lastname}
+            </span>
           </p>
           <p className="tags">
-            <span className="tag">{category}</span>
+            <span className="tag">
+              <Link to={"/tutors?category=" + category}>{category}</Link>
+            </span>
           </p>
           <p className="class-info">
             <span className="price">${price}</span>
@@ -91,6 +96,11 @@ h3 {
 }
 .tutor {
   /* margin-bottom: auto; */
+}
+
+.tutor-name {
+  font-weight: 700;
+  color: dimgray;
 }
 .tags {
   /* justify-self: flex-end; */

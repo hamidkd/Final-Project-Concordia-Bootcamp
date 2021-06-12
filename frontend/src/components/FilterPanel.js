@@ -24,7 +24,7 @@ const FilterPanel = () => {
                   name="category"
                   onChange={updateFiltersHandler}
                 />
-                <label className='filterLabel'>{key}</label>
+                <label className="filterLabel">{key}</label>
               </div>
             );
           })}{" "}
