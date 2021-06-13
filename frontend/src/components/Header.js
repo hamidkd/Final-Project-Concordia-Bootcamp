@@ -5,23 +5,30 @@ import { themeVars } from "./GlobalStyles";
 
 import ProfileInHeader from "./ProfileInHeader";
 import { AppContext } from "./AppProvider";
+import AdminRibon from "./AdminRibon";
+import TutorRibon from "./TutorRibon";
+import { useAuth } from "./AuthProvider";
 
 const Header = () => {
-  
+  const { currentUser } = useAuth();
 
   return (
-    <StyledHeader>
-      <nav>
-        <Link to="/">
-          <h1 className="site-title">
-            <span>Kid</span>Cademy
-          </h1>
-        </Link>
-        <Link to="/tutors">Classes</Link>
-      </nav>
+    <>
+      {currentUser && currentUser.role === "admin" && <AdminRibon />}
+      {currentUser && currentUser.role === "tutor" && <TutorRibon />}
+      <StyledHeader>
+        <nav>
+          <Link to="/">
+            <h1 className="site-title">
+              <span>Kid</span>Cademy
+            </h1>
+          </Link>
+          <Link to="/tutors">Classes</Link>
+        </nav>
 
-       <ProfileInHeader />
-    </StyledHeader>
+        <ProfileInHeader />
+      </StyledHeader>
+    </>
   );
 };
 
