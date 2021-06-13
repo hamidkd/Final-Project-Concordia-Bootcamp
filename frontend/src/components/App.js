@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import ResetStyles from "./ResetStyles";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
 import Header from "./Header";
@@ -12,8 +12,9 @@ import Confirmation from "./Confirmation";
 import FilterProvider from "./FilterProvider";
 import Collection from "./Collection";
 import TutorProfile from "./TutorProfile";
-import AdminDashboard from "./AdminDashboard";
+import Dashboard from "./Dashboard";
 import TutorDashboard from "./TutorDashboard";
+import AdminDashboard from "./AdminDashboard";
 import Footer from "./Footer";
 
 function App() {
@@ -31,8 +32,8 @@ function App() {
             <Route exact path="/login">
               <LoginPage />
             </Route>
-            <Route exact path="/reserve-class">
-              <CheckOut />
+            <Route path="/reserve-class">
+              <CheckOut title='hello'/>
             </Route>
             <Route exact path="/reserve-class/confirmation">
               <Confirmation />
@@ -45,14 +46,14 @@ function App() {
                 <Collection />
               </FilterProvider>
             </Route>
-            <PrivateRoute path="/admin-dashboard">
-              <AdminDashboard />
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
             </PrivateRoute>
-            <PrivateRoute path="/tutor-dashboard">
-              <TutorDashboard />
-            </PrivateRoute>
-            <Route path="*">
+            <Route path="/404">
               <p>404 PAGE NOT FOUND</p>
+            </Route>
+            <Route path="*">
+              <Redirect to='/404'/>
             </Route>
           </Switch>
         </Main>
