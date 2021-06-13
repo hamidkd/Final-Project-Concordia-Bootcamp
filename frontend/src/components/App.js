@@ -2,15 +2,18 @@ import Styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import ResetStyles from "./ResetStyles";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 import Header from "./Header";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
-import ReserveClass from "./ReserveClass";
+import CheckOut from "./CheckOut";
 import Confirmation from "./Confirmation";
 import FilterProvider from "./FilterProvider";
 import Collection from "./Collection";
 import TutorProfile from "./TutorProfile";
+import AdminDashboard from "./AdminDashboard";
+import TutorDashboard from "./TutorDashboard";
 import Footer from "./Footer";
 
 function App() {
@@ -29,7 +32,7 @@ function App() {
               <LoginPage />
             </Route>
             <Route exact path="/reserve-class">
-              <ReserveClass />
+              <CheckOut />
             </Route>
             <Route exact path="/reserve-class/confirmation">
               <Confirmation />
@@ -42,6 +45,12 @@ function App() {
                 <Collection />
               </FilterProvider>
             </Route>
+            <PrivateRoute path="/admin-dashboard">
+              <AdminDashboard />
+            </PrivateRoute>
+            <PrivateRoute path="/tutor-dashboard">
+              <TutorDashboard />
+            </PrivateRoute>
             <Route path="*">
               <p>404 PAGE NOT FOUND</p>
             </Route>

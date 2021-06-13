@@ -6,9 +6,10 @@ import { themeVars } from "./GlobalStyles";
 import GoogleLogin from "react-google-login";
 
 import Input from "./Input";
+import { useAuth } from "./AuthProvider";
 
-const Comp = () => {
-  const { currentUser, setCurrentUser } = useContext(AppContext);
+const LoginPage = () => {
+  const { currentUser, setCurrentUser } = useAuth();
 
   const [formData, setFormData] = useState(null);
 
@@ -43,6 +44,7 @@ const Comp = () => {
       .then((json) => {
         if (json.status === 200) {
           setCurrentUser(json.data);
+          localStorage.setItem('currentUser', JSON.stringify(json.data));
         } else if (json.status === 500) {
           window.alert("Error! somethig went wrong!");
         } else {
@@ -83,7 +85,7 @@ const Comp = () => {
   );
 };
 
-export default Comp;
+export default LoginPage;
 
 const Div = Styled.div`
 

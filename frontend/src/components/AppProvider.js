@@ -2,8 +2,7 @@ import React, { useState, createContext, useEffect } from "react";
 
 export const AppContext = createContext(null);
 
-export const AppProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+const AppProvider = ({ children }) => {
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
@@ -13,7 +12,7 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ currentUser, setCurrentUser, categories }}>
+    <AppContext.Provider value={{ categories }}>
       {children}
     </AppContext.Provider>
   );
