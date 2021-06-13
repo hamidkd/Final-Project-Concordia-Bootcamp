@@ -1,25 +1,21 @@
-import React from "react";
+import React, { createContext } from "react";
 import PropTypes from "prop-types";
-import {Route, Redirect} from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ children, ...rest }) => {
   const { currentUser } = useAuth();
+
+  console.log("cc", currentUser);
 
   return (
     <Route
       {...rest}
-      render={(props) => {
-        return currentUser ? (
-          <Component {...props}> </Component>
-        ) : (
-          <Redirect to="/login"></Redirect>
-        );
+      children={(props) => {
+        return currentUser ? children : <Redirect to="/login" />;
       }}
     ></Route>
   );
 };
-
-PrivateRoute.propTypes = {};
 
 export default PrivateRoute;
