@@ -40,8 +40,8 @@ const TutorProfile = () => {
             </section>
             <section>
               <p>price: {tutor.price}$</p>
-              <p>Session Duration: {tutor.sessionDuration}$</p>
-              <p>Sessions: {tutor.numberOfSessions}$</p>
+              <p>Session Duration: {tutor.sessionDuration} minutes</p>
+              <p>Number Of Sessions: {tutor.numberOfSessions}</p>
               </section>
             <div className="buttons">
               <Link
