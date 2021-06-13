@@ -64,6 +64,7 @@ button, .button, .primary-button, .cta-button , .big-button {
   background-color: white;
   color: ${themeVars.primaryColor};
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .primary-button, .cta-button , .big-button {
