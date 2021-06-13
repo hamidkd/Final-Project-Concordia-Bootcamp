@@ -5,8 +5,6 @@ import { themeVars } from "./GlobalStyles";
 
 import ProfileInHeader from "./ProfileInHeader";
 import { AppContext } from "./AppProvider";
-import AdminRibon from "./AdminRibon";
-import TutorRibon from "./TutorRibon";
 import { useAuth } from "./AuthProvider";
 
 const Header = () => {
@@ -14,8 +12,6 @@ const Header = () => {
 
   return (
     <>
-      {currentUser && currentUser.role === "admin" && <AdminRibon />}
-      {currentUser && currentUser.role === "tutor" && <TutorRibon />}
       <StyledHeader>
         <nav>
           <Link to="/">

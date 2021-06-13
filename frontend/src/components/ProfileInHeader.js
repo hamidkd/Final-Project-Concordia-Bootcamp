@@ -42,7 +42,10 @@ const ProfileInHeader = () => {
     <Div>
       {currentUser ? (
         <>
-          <span>Hi, {currentUser.firstname}</span>
+          <div>
+            <p>Hi, {currentUser.firstname}</p>
+            <p className="role">{currentUser.role}</p>
+          </div>
           <button className="profile-button" onClick={showProfileMenu}>
             <img
               className="profile-picture"
@@ -78,6 +81,13 @@ color: white;
 display: flex;
 align-items: center;
 gap: 1rem;
+
+.role {
+  font-size: 0.8em;
+  font-weight: 300;
+  text-align: right;
+
+}
 
 .profile-button {
   padding: 0;
