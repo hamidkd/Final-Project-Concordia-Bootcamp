@@ -3,20 +3,30 @@ import Styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AppContext } from "./AppProvider";
 import { themeVars } from "./GlobalStyles";
+import { useAuth } from "./AuthProvider";
 
 const ProfileInHeader = () => {
-  const { currentUser, setCurrentUser } = useContext(AppContext);
+  const { currentUser, setCurrentUser } = useAuth();
 
   const handleLogOut = () => {
     setCurrentUser(null);
+    localStorage.removeItem("currentUser");
   };
+
   return (
     <Div>
       {currentUser ? (
         <>
           <span>Hi, {currentUser.firstname}</span>
-          <img className='profile-picture' src={"/images/tutors/" + currentUser.username + ".jpg"} alt="profile-picture" width='40px'></img>
-          <button className='button' onClick={handleLogOut}>Log Out</button>
+          <img
+            className="profile-picture"
+            src={"/images/tutors/" + currentUser.username + ".jpg"}
+            alt="profile-picture"
+            width="40px"
+          ></img>
+          <button className="button" onClick={handleLogOut}>
+            Log Out
+          </button>
         </>
       ) : (
         <Link to="/login">Login</Link>
