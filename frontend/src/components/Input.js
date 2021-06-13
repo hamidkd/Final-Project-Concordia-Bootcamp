@@ -11,6 +11,10 @@ const Input = ({
   min,
   max,
   steps,
+  inputmode,
+  pattern,
+  maxlength,
+  placeholder,
 }) => {
   return (
     <Div>
@@ -18,15 +22,18 @@ const Input = ({
         className="input"
         type={type}
         name={name}
-        placeholder={name}
+        placeholder={placeholder ? placeholder : name}
         required={required}
         onChange={changeHandler}
         min={min}
         max={max}
         steps={steps}
+        inputmode={inputmode}
+        pattern={pattern}
+        maxlength={maxlength}
       />
       <label className="label" htmlFor={name}>
-        {title ? title : name}
+        {title ? title : (placeholder ? placeholder : name)}
       </label>
     </Div>
   );
