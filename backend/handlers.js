@@ -67,17 +67,29 @@ const getTutorProfileByUsername = async (req, res) => {
 };
 
 const getAllOrders = async (req, res) => {
-  console.log("Fake Get All Orders");
-  res.status(200).json({ status: 200, messge: "fake response" });
+  const result = await findInDB({ collectionName: "classReservations" });
+  res.status(result.status).json(result);
 };
 const getOrdersByTutorUsername = async (req, res) => {
-  console.log("Fake Get orders by tutor username");
-  res.status(200).json({ status: 200, messge: "fake response" });
+  const { tutorUsername } = req.params;
+  const result = await findInDB({
+    collectionName: "classReservations",
+    mongoQuery: { tutorUsername: tutorUsername },
+  });
+  res.status(result.status).json(result);
 };
 
 const createOrder = async (req, res) => {
-  const { firstname, lastname, age, email, phone, numberOfSessions } = req.body;
-  if (!firstname || !lastname || !email || !phone) {
+  const { firstname, lastname, age, email, phone, creditCard, expirationDate } =
+    req.body;
+  if (
+    !firstname ||
+    !lastname ||
+    !email ||
+    !phone ||
+    !creditCard ||
+    !expirationDate
+  ) {
     res.status(400).json({
       status: 400,
       message: "Please provide all required information.",
@@ -90,18 +102,15 @@ const createOrder = async (req, res) => {
 
   // const mongoQuery = { username: tutorUsername };
   const insertQuery = {
-    $set: {
-      tutorUsername: username,
-      numberOfSessions,
-      firstname,
-      lastname,
-      age,
-      email,
-      phone,
-    },
+    tutorUsername,
+    firstname,
+    lastname,
+    age,
+    email,
+    phone,
   };
 
-  await db.collection("classResevation"). insertOne(insertQuery);
+  await db.collection("classReservations").insertOne(insertQuery);
 
   client.close();
 
