@@ -65,6 +65,9 @@ button, .button, .primary-button, .cta-button , .big-button {
   color: ${themeVars.primaryColor};
   font-size: 1.5rem;
   cursor: pointer;
+  &:hover {
+  box-shadow: ${themeVars.boxShadowHover};
+  }
 }
 
 .primary-button, .cta-button , .big-button {

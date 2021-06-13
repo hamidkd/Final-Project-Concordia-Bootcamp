@@ -3,15 +3,12 @@ import PropTypes from "prop-types";
 import { useAuth } from "./AuthProvider";
 import TutorDashboard from "./TutorDashboard";
 import AdminDashboard from "./AdminDashboard";
-import {Redirect} from 'react-router-dom';
-
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
-    const currentUser = useAuth();
-    console.log('Role', currentUser?.role);
+  const { currentUser } = useAuth();
   return (
     <>
-    You are in Dashboard.
       {currentUser && (
         <>
           {currentUser.role === "tutor" && <TutorDashboard />}
