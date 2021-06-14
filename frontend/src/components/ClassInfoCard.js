@@ -38,6 +38,10 @@ const ClassInfoCard = ({ tutor }) => {
           <p>${tutor.price}</p>
           <h4>category:</h4>
           <p>{tutor.category}</p>
+          <h4>Number of Sessions:</h4>
+          <p>{tutor.numberOfSession}</p>
+          <h4>Session Duration:</h4>
+          <p>{tutor.sessionDuration}</p>
           <button className="button" onClick={() => setIsInEditeMode(true)}>
             {isInEditMode ? "Editting" : "Edit Class Info"}
           </button>

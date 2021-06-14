@@ -26,6 +26,8 @@ const handleGoogleLogin = async (req, res) => {
           collectionName: "tutors",
           mongoQuery: { email },
         });
+        console.log("%%%%%%%%%%%%%%%%%%", result);
+
         if (result.data) {
           res.status(200).json(result);
         } else {
