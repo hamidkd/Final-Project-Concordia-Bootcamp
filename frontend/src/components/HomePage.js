@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Styled from "styled-components";
 import { AppContext } from "./AppProvider";
+import FeaturedClass from "./FeaturedClass";
 
 import CategoryCard from "./CategoryCard";
 import Hero from "./Hero";
@@ -13,15 +14,19 @@ const HomePage = () => {
       <section>
         <h2>Categories</h2>
         <ul className="categories">
-          {categories && categories.map(category => {
-            return (
-              <CategoryCard category={category} />
-            );
-          })}
+          {categories &&
+            categories.map((category) => {
+              return <CategoryCard category={category} />;
+            })}
         </ul>
       </section>
       <section>
         <h2>Featured Classes</h2>
+        <div className='featured-classes'>
+        <FeaturedClass tutorUsername="alberte" />
+        <FeaturedClass tutorUsername="vangogh" />
+        <FeaturedClass tutorUsername="billgates" />
+        </div>
       </section>
     </Div>
   );
@@ -31,6 +36,12 @@ export default HomePage;
 
 const Div = Styled.div`
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .categories {
     display: flex;
@@ -40,5 +51,14 @@ const Div = Styled.div`
     padding-left: 2rem ;
 }
 
+.featured-classes {
+  padding-bottom: 5rem;
+  max-width: 90ch;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
 
 `;
