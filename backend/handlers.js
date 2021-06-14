@@ -13,14 +13,14 @@ const { connectToDB } = require("./dbConnector");
 
 const handleGoogleLogin = async (req, res) => {
   const { tokenId } = req.body;
-  console.log("inside google login handler");
-  console.log("tokenId", req.body);
 
   oAuth2Client
     .verifyIdToken({ idToken: tokenId, audience: GOOGLE_OAUTH2_CLIENT_ID })
     .then(async (response) => {
-      console.log("response payloOOOOOOOOOOOd", response.payload);
-      const { email, email_verified, name } = response.payload;
+      const { given_name, family_name, picture, email, email_verified, name } =
+        response.payload;
+      console.log("respayload", response.payload);
+      console.log("reqbody", req.body);
 
       if (email_verified) {
         const result = await findOneInDB({
@@ -30,8 +30,32 @@ const handleGoogleLogin = async (req, res) => {
         if (result.data) {
           res.status(200).json(result);
         } else {
-          //create a user with that name
-          res.status(400).json({ status: 400, message: "no such a user" });
+          // create a user with that name
+          const newDocument = {
+            email: email,
+            username:
+              given_name +
+              family_name +
+              String(Math.floor(Math.random() * 1000)),
+            firstname: given_name,
+            lastname: family_name,
+            avatarImg: picture,
+            role: "user",
+          };
+
+          const result = await insertOneInDB({
+            collectionName: "tutors",
+            document: newDocument,
+          });
+          if (result.status === 201) {
+            const result2 = await findOneInDB({
+              collectionName: "tutors",
+              mongoQuery: {email},
+            });
+            res.status(201).json({ ...result, data: result2.data });
+          } else {
+            res.status(result.status).json(result);
+          }
         }
       }
     });
@@ -129,12 +153,12 @@ const findInDB = async ({ collectionName, mongoQuery, res }) => {
     const data = await db.collection(collectionName).find(mongoQuery).toArray();
 
     client.close();
-    return { status: 200, messge: "success", data };
+    return { status: 200, message: "success", data };
   } catch (err) {
     if (client) {
       client.close();
     }
-    return { status: 500, messge: "error" };
+    return { status: 500, message: "error" };
   }
 };
 
@@ -146,15 +170,37 @@ const findOneInDB = async ({ collectionName, mongoQuery, res }) => {
     client.close();
 
     if (data) {
-      return { status: 200, messge: "success", data };
+      return { status: 200, message: "success", data };
     } else {
-      return { status: 400, messge: "bad request" };
+      return { status: 400, message: "bad request" };
     }
   } catch (err) {
+    console.log('the error was ', err);
     if (client) {
       client.close();
     }
-    return { status: 500, messge: "error" };
+    return { status: 500, message: "error" };
+  }
+};
+
+const insertOneInDB = async ({ collectionName, document }) => {
+  try {
+    const { db, client } = await connectToDB();
+    const result = await db.collection(collectionName).insertOne(document);
+
+    client.close();
+
+    if (result.insertedCount === 1) {
+      return { status: 201, message: "success, new user created." };
+    } else {
+      return { status: 400, message: "bad request, couldn't create new user." };
+    }
+  } catch (err) {
+    console.log("the error was", err);
+    if (client) {
+      client.close();
+    }
+    return { status: 500, message: "error, couldn't create new user." };
   }
 };
 module.exports = {

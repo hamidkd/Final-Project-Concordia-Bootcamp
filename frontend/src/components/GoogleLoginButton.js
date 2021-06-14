@@ -29,7 +29,7 @@ const GoogleLoginButton = () => {
   };
 
   const responseSuccessGoogle = (res) => {
-    console.log("RES from Google Login", res);
+    // console.log("RES from Google Login", res);
 
     fetch("/api/googlelogin", {
       method: "POST",
@@ -41,7 +41,11 @@ const GoogleLoginButton = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        if (json.status === 200) {
+       
+        console.log('json', json);
+
+        if (json.status === 200 || json.status === 201) {
+          console.log(json.data);
           setCurrentUser(json.data);
           localStorage.setItem("currentUser", JSON.stringify(json.data));
         } else if (json.status === 500) {

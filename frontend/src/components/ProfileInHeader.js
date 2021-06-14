@@ -38,6 +38,7 @@ const ProfileInHeader = () => {
     };
   }, [isProfileMenuVisible]);
 
+  console.log('cuu', currentUser);
   return (
     <Div>
       {currentUser ? (
@@ -50,7 +51,7 @@ const ProfileInHeader = () => {
             <img
               className="profile-picture"
               src={"/images/tutors/" + currentUser.username + ".jpg"}
-              alt="profile-picture"
+              alt="Profile Picture"
               width="40px"
             ></img>
           </button>
@@ -100,6 +101,11 @@ gap: 1rem;
   border-radius: 100px;
   border: 3px solid white;
   box-shadow: ${themeVars.boxShadow};
+  font-size: 7px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-menu {
