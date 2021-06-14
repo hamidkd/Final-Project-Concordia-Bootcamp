@@ -41,7 +41,9 @@ const FilterProvider = ({ children }) => {
   useEffect(() => {
     fetch("/api/tutors")
       .then((res) => res.json())
-      .then((json) => setItems(json.data));
+      .then((json) => {
+        setItems(json.data)
+      });
   }, []);
 
   const [filters, setFilters] = useState();
@@ -49,6 +51,8 @@ const FilterProvider = ({ children }) => {
   const [isOnlyShowAvailableItemsChecked, setIsOnlyShowAvailableItemsChecked] =
     useState(false);
   const [pagination, setPagination] = useState(1);
+  const [isOnlyAliveChecked, setIsOnlyAliveChecked] =
+    useState(false);
 
   //reseting on url change or after getting data after initial delay
 
@@ -85,10 +89,13 @@ const FilterProvider = ({ children }) => {
     if (!filters.category || filters.category.length < 2) {
       return items;
     }
-    // console.log('here');
 
-    if (isOnlyShowAvailableItemsChecked) {
-      arr = arr.filter((items) => items.numInStock > 0);
+    if (isOnlyAliveChecked) {
+      arr = arr.filter((item) => {
+        
+        return item.alive === true;
+      });
+
     }
 
     let itemsThatPassCategoryFilter = arr;
@@ -104,7 +111,7 @@ const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     setFilteredItems(() => filterItems(items));
-  }, [filters, isOnlyShowAvailableItemsChecked, items]);
+  }, [filters, isOnlyAliveChecked, items]);
 
 
   // return ========================================================
@@ -117,8 +124,8 @@ const FilterProvider = ({ children }) => {
         setFilteredItems,
         updateFiltersHandler,
         filterItems,
-        isOnlyShowAvailableItemsChecked,
-        setIsOnlyShowAvailableItemsChecked,
+        isOnlyAliveChecked,
+        setIsOnlyAliveChecked,
         pagination,
         setPagination,
       }}

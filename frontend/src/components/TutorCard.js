@@ -15,8 +15,10 @@ const TutorCard = ({ tutor }) => {
     category,
     price,
     sessionDuration,
-    numberOfSessions
+    numberOfSessions,
+    alive
   } = tutor;
+
   return (
     <Div>
       <Link className="link" to={"/tutors/" + username}>

@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import Styled from "styled-components";
 import { themeVars } from "./GlobalStyles";
 
-let name = '';
+let name = "";
 
 const Collection = ({ category }) => {
-  name = category.name ;
+  name = category.name;
   return (
     <Div>
       <Link className="link" to={"/tutors?category=" + category.name}>
-        <h3 className='category-title'>{category.name}</h3>
+        <h3 className="category-title">{category.name}</h3>
       </Link>
     </Div>
   );
@@ -28,6 +28,10 @@ filter: saturate(30%);
 padding: 1rem;
 border-radius: 1rem;
 box-shadow: ${themeVars.boxShadow};
+
+&:hover {
+box-shadow: ${themeVars.boxShadowHover};
+}
 
 min-height: 300px;
 
