@@ -15,6 +15,7 @@ const Input = ({
   pattern,
   maxlength,
   placeholder,
+  defaultValue
 }) => {
   return (
     <Div>
@@ -31,6 +32,7 @@ const Input = ({
         inputmode={inputmode}
         pattern={pattern}
         maxlength={maxlength}
+        defaultValue={defaultValue}
       />
       <label className="label" htmlFor={name}>
         {title ? title : (placeholder ? placeholder : name)}

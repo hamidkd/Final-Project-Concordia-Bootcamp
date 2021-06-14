@@ -45,7 +45,6 @@ const CheckOut = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log("Clciked");
 
     fetch("/api/orders/" + tutor.username, {
       method: "POST",
@@ -63,7 +62,6 @@ const CheckOut = () => {
       });
   };
 
-  console.log(formData);
 
   return (
     <Div>
@@ -81,27 +79,6 @@ const CheckOut = () => {
             <p className="session"></p>
           </Div>
           <Form submitHandler={submitHandler}>
-            {/* <h3>Number of Sessions</h3>
-            <div>
-              <Input
-                title="Number of sessions"
-                name="numberOfSessions"
-                type="number"
-                min="1"
-                steps="1"
-                required={true}
-                changeHandler={handleFormDataCahnge}
-              />
-              {formData?.numberOfSession && (
-                <p className="total-price">
-                  <span>total: </span>
-                  <span>
-                    {formData.numberOfSession} * ${tutor.price} = $
-                    {formData.numberOfSession * tutor.price}
-                  </span>
-                </p>
-              )}
-            </div> */}
             <h3>Student Info</h3>
             <p>Please fill out the form beloow</p>
             <Input

@@ -13,8 +13,7 @@ import FilterProvider from "./FilterProvider";
 import Collection from "./Collection";
 import TutorProfile from "./TutorProfile";
 import Dashboard from "./Dashboard";
-import TutorDashboard from "./TutorDashboard";
-import AdminDashboard from "./AdminDashboard";
+import EditClassInfo from './EditClassInfo';
 import Footer from "./Footer";
 import NotFoundPage from "./NotFoundPage";
 
@@ -34,7 +33,7 @@ function App() {
               <LoginPage />
             </Route>
             <Route path="/reserve-class">
-              <CheckOut title='hello'/>
+              <CheckOut title="hello" />
             </Route>
             <Route exact path="/reserve-class/confirmation">
               <Confirmation />
@@ -50,11 +49,15 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
+            <PrivateRoute path='/edit-class-info'>
+              <EditClassInfo />
+            </PrivateRoute>
+
             <Route path="/404">
-              <NotFoundPage/>
+              <NotFoundPage />
             </Route>
             <Route path="*">
-              <Redirect to='/404'/>
+              <Redirect to="/404" />
             </Route>
           </Switch>
         </Main>

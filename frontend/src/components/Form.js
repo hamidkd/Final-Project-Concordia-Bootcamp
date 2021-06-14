@@ -10,12 +10,12 @@ export default Form;
 
 const StyledFrom = Styled.form`
 
+background: white;
 padding: 2rem;
 border-radius: 1rem;
 
 max-width: 50ch;
 margin: 0 auto;
-box-shadow: ${themeVars.boxShadow};
 
 display: flex;
 flex-direction: column;

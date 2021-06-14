@@ -5,11 +5,12 @@ const {
   getAllCategories,
   getAllTutors,
   getTutorProfileByUsername,
+  updateTutorProfileByUsername,
   getAllOrders,
   getOrdersByTutorUsername,
   createOrder,
   getUserByUsername,
-} = require("./handlers");
+  } = require("./handlers");
 
 const express = require("express");
 var bodyParser = require("body-parser");
@@ -29,6 +30,7 @@ app.post("/api/googlelogin", handleGoogleLogin);
 app.get("/api/categories", getAllCategories);
 app.get("/api/tutors", getAllTutors);
 app.get("/api/tutors/:username", getTutorProfileByUsername);
+app.patch("/api/tutors/:tutorUsername/update", updateTutorProfileByUsername);
 app.get("/api/orders", getAllOrders);
 app.get("/api/orders/:tutorUsername", getOrdersByTutorUsername);
 app.post("/api/orders/:tutorUsername", createOrder);

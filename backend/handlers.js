@@ -5,7 +5,6 @@ require("dotenv").config();
 const { OAuth2Client } = require("google-auth-library");
 
 const GOOGLE_OAUTH2_CLIENT_ID = process.env.GOOGLE_OAUTH2_CLIENT_ID;
-console.log("OOOOOO", GOOGLE_OAUTH2_CLIENT_ID);
 
 const oAuth2Client = new OAuth2Client(GOOGLE_OAUTH2_CLIENT_ID);
 
@@ -50,7 +49,7 @@ const handleGoogleLogin = async (req, res) => {
           if (result.status === 201) {
             const result2 = await findOneInDB({
               collectionName: "tutors",
-              mongoQuery: {email},
+              mongoQuery: { email },
             });
             res.status(201).json({ ...result, data: result2.data });
           } else {
@@ -88,6 +87,29 @@ const getTutorProfileByUsername = async (req, res) => {
   // }
 
   res.status(result.status).json(result);
+};
+
+const updateTutorProfileByUsername = async (req, res) => {
+  const { tutorUsername } = req.params;
+
+  const mongoQuery = { username: tutorUsername };
+
+  const result = await updateOneInDB({
+    collectionName: "tutors",
+    mongoQuery,
+    updates: req.body,
+  });
+
+  let data;
+  if (result.status === 200) {
+    const result2 = await findOneInDB({
+      collectionName: "tutors",
+      mongoQuery,
+    });
+    data = result2.data;
+  }
+
+  res.status(result.status).json({ ...result, data });
 };
 
 const getAllOrders = async (req, res) => {
@@ -175,7 +197,7 @@ const findOneInDB = async ({ collectionName, mongoQuery, res }) => {
       return { status: 400, message: "bad request" };
     }
   } catch (err) {
-    console.log('the error was ', err);
+    console.log("the error was ", err);
     if (client) {
       client.close();
     }
@@ -203,11 +225,41 @@ const insertOneInDB = async ({ collectionName, document }) => {
     return { status: 500, message: "error, couldn't create new user." };
   }
 };
+
+// collectionName: "tutors",
+// mongoQuery: { username: tutorUsername },
+// updates: { $set: { ...updates } }
+
+const updateOneInDB = async ({ collectionName, mongoQuery, updates }) => {
+  try {
+    const { db, client } = await connectToDB();
+    console.log(mongoQuery);
+    const result = await db
+      .collection("tutors")
+      .updateOne(mongoQuery, { $set: updates });
+
+    client.close();
+
+    if (result.matchedCount === 1) {
+      return { status: 200, message: "success, the one document updated" };
+    } else {
+      return { status: 400, message: "bad request, couldn't do this request." };
+    }
+  } catch (err) {
+    console.log("the error was", err);
+    if (client) {
+      client.close();
+    }
+    return { status: 500, message: "error, couldn't create new user." };
+  }
+};
+
 module.exports = {
   handleGoogleLogin,
   getAllCategories,
   getAllTutors,
   getTutorProfileByUsername,
+  updateTutorProfileByUsername,
   getAllOrders,
   getOrdersByTutorUsername,
   createOrder,
