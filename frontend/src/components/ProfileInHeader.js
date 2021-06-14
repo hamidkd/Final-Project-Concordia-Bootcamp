@@ -38,7 +38,6 @@ const ProfileInHeader = () => {
     };
   }, [isProfileMenuVisible]);
 
-  console.log('cuu', currentUser);
   return (
     <Div>
       {currentUser ? (
@@ -57,7 +56,9 @@ const ProfileInHeader = () => {
           </button>
           {isProfileMenuVisible && (
             <div className="profile-menu">
-              <Link to="/dashboard">Dashboard</Link>
+              {currentUser.role !== "user" && (
+                <Link to="/dashboard">Dashboard</Link>
+              )}
               <button className="log-out-button" onClick={handleLogOut}>
                 Log Out
               </button>

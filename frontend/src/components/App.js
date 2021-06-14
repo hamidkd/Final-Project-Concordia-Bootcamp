@@ -16,6 +16,7 @@ import Dashboard from "./Dashboard";
 import TutorDashboard from "./TutorDashboard";
 import AdminDashboard from "./AdminDashboard";
 import Footer from "./Footer";
+import NotFoundPage from "./NotFoundPage";
 
 function App() {
   return (
@@ -50,7 +51,7 @@ function App() {
               <Dashboard />
             </PrivateRoute>
             <Route path="/404">
-              <p>404 PAGE NOT FOUND</p>
+              <NotFoundPage/>
             </Route>
             <Route path="*">
               <Redirect to='/404'/>

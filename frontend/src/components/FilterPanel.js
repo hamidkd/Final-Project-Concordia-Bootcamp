@@ -50,6 +50,8 @@ border-radius: 1rem;
 margin-bottom: 2rem;
 
 display: flex;
+flex-wrap: wrap;
+gap: 1rem;
 justify-content: space-around;
 
 .filterCheckBox {

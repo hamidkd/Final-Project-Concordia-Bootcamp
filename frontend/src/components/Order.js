@@ -5,14 +5,13 @@ const Order = ({ order }) => {
   const { tutorUsername, firstname, lastname, age, email, phone } = order;
 
   return (
-    <Div>
-      <p>{tutorUsername}</p>
-      <p>{firstname}</p>
-      <p>{lastname}</p>
-      <p>{age}</p>
-      <p>{email}</p>
-      <p>{phone}</p>
-    </Div>
+    <tr>
+      <td>{firstname}</td>
+      <td>{lastname}</td>
+      <td>{age}</td>
+      <td>{email}</td>
+      <td>{phone}</td>
+    </tr>
   );
 };
 
