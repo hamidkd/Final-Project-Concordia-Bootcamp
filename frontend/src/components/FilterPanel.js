@@ -15,7 +15,7 @@ const FilterPanel = () => {
         <Div>
           {Object.keys(filters.category).map((key) => {
             return (
-              <div>
+              <div className="tag">
                 <input
                   className="filterCheckBox"
                   type="checkbox"
@@ -42,24 +42,33 @@ const Div = Styled.div`
 
 margin: 0 auto;
 max-width: 800px;
-box-shadow: ${themeVars.boxShadow};
 
-background: purple;
-padding: 1rem;
+padding-block: 1rem;
 border-radius: 1rem;
-margin-bottom: 2rem;
+margin-bottom: 1rem;
 
 display: flex;
 flex-wrap: wrap;
 gap: 1rem;
-justify-content: space-around;
+justify-content: space-between;
+
+div {
+padding-inline: 1rem;
+padding-block: 0.8rem;
+border-radius: 9rem;
+background: ${themeVars.accent2Color};
+box-shadow: ${themeVars.boxShadow};
+}
 
 .filterCheckBox {
     /* border: 2px solid orange; */
+    
 }
 
-.filterLabel {
-  color: white;
+label {
+    color: white;
 }
+
+
 
 `;

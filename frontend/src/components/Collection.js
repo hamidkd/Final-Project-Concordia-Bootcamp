@@ -77,13 +77,15 @@ const Collection = () => {
 
   return (
     <Div>
-      <h2>Tutors</h2>
+      <h2>Classes</h2>
       <FilterPanel />
-      <SortDropDown onChangeHandler={handleChangeSortType} />
+      <div className='controls'> 
       <OnlyShowAliveCheckBox
         onChangeHandler={handleOnlyAlive}
         isOnlyAliveChecked={isOnlyAliveChecked}
-      />
+        />
+      <SortDropDown onChangeHandler={handleChangeSortType} />
+        </div>
       {filteredItems ? (
         <ul className="tutors">
           {sortPlease(filteredItems, sortType).map((tutor, index) => {
@@ -104,6 +106,10 @@ const Div = Styled.div`
 padding-inline: 2rem;
 padding-block: 2rem;
 border-radius: 1rem;
+
+h2 {
+  padding: 1rem;
+}
 
 .tutors {
     padding-right: 2rem ;
@@ -128,6 +134,17 @@ border-radius: 1rem;
   }
 
 
+
  
 }
+
+.controls {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 800px;
+
+}
+
 `;

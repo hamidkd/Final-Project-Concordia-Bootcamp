@@ -90,19 +90,22 @@ const FilterProvider = ({ children }) => {
       return items;
     }
 
-    if (isOnlyAliveChecked) {
-      arr = arr.filter((item) => {
-        
-        return item.alive === true;
-      });
+    
 
-    }
+    
 
     let itemsThatPassCategoryFilter = arr;
 
     if (!Object.values(filters.category).every((e) => e === false)) {
       itemsThatPassCategoryFilter = items.filter((item) => {
         return filters.category[item.category.toLowerCase()] === true;
+      });
+    }
+
+    if (isOnlyAliveChecked) {
+      itemsThatPassCategoryFilter = itemsThatPassCategoryFilter.filter((item) => {
+        
+        return item.alive === true;
       });
     }
 

@@ -1,14 +1,15 @@
 import React from "react";
 import Styled from "styled-components";
+import { themeVars } from "./GlobalStyles";
 
 export const SortDropdown = ({ onChangeHandler }) => {
   return (
     <Div>
-      <label className="label">Sort by:</label>
+      {/* <label className="label">Sort by:</label> */}
 
       <Select className="sort-dropdown" onChange={onChangeHandler}>
         <option value="" disabled selected>
-          Select Sort Option
+          Sort By:
         </option>
         <option value="priceLowToHight">Price - Lowest to Highest</option>
         <option value="priceHightToLow">Price - Highest to Lowest</option>
@@ -23,24 +24,27 @@ export default SortDropdown;
 
 const Div = Styled.div`
 display: flex;
+align-items :center;
 gap: 0.5rem;
+
+.sort-dropdown {
+}
 
 .label {
     font-size:1.2em;
     font-weight: 700;
-    color: dimgray;
+    color: gray;
 }
 
 `;
 
 const Select = Styled.select`
 
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 5px;
+    padding: 0.7rem;
+    border-radius: 0.7rem;
     /* border: 3px solid gray; */
     border: none;
-    background: dimgray;
+    background: ${themeVars.accent2Color};
     appearance: none;
     /* background: ; */
     color: white;
@@ -54,8 +58,16 @@ const Select = Styled.select`
     option {
       /* padding: 1rem; */
       color: white;
-      background: #454e51;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 1rem;
+
+    
+
+    &:disabled {
+      display: none;
+      background: none;
+      color: lightgray;
+    }
     }
 
     `;

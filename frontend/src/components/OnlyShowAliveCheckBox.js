@@ -12,7 +12,7 @@ const OnlyShowAliveCheckBox = ({
         checked={isOnlyShowInStockChecked}
         onChange={onChangeHandler}
       />
-      <label className="label">Only Alive Tutors</label>
+      <label className="label">Alive!</label>
     </Div>
   );
 };
