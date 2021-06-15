@@ -52,7 +52,7 @@ const ClassInfoCard = ({ theTutor, isEditable }) => {
           <h4>Session Duration:</h4>
           <p>{tutor.sessionDuration} minutes</p>
           {isEditable && (
-            <button className="button" onClick={() => setIsInEditeMode(true)}>
+            <button className="edit-button" onClick={() => setIsInEditeMode(true)}>
               {isInEditMode ? "Editting" : "Edit Class Info"}
             </button>
           )}
@@ -85,7 +85,9 @@ h2 {
     padding: 0;
 }
 
-.button {
+.edit-button {
     background: skyblue;
+    align-self: center;
+    padding-inline: 3rem;
   }
 `;

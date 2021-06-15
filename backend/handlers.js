@@ -9,6 +9,7 @@ const GOOGLE_OAUTH2_CLIENT_ID = process.env.GOOGLE_OAUTH2_CLIENT_ID;
 const oAuth2Client = new OAuth2Client(GOOGLE_OAUTH2_CLIENT_ID);
 
 const { connectToDB } = require("./dbConnector");
+const { ObjectID } = require("mongodb");
 
 const handleGoogleLogin = async (req, res) => {
   const { tokenId } = req.body;
@@ -26,7 +27,6 @@ const handleGoogleLogin = async (req, res) => {
           collectionName: "tutors",
           mongoQuery: { email },
         });
-        console.log("%%%%%%%%%%%%%%%%%%", result);
 
         if (result.data) {
           res.status(200).json(result);
@@ -118,6 +118,18 @@ const getAllOrders = async (req, res) => {
   const result = await findInDB({ collectionName: "classReservations" });
   res.status(result.status).json(result);
 };
+
+const deleteOrderById = async (req, res) => {
+  const { orderId } = req.params;
+  const _id = ObjectID(orderId);
+  const mongoQuery = { _id: _id };
+  const result = await DeleteOneInDB({
+    collectionName: "classReservations",
+    mongoQuery,
+  });
+
+  res.status(result.status).json(result);
+};
 const getOrdersByTutorUsername = async (req, res) => {
   const { tutorUsername } = req.params;
   const result = await findInDB({
@@ -186,7 +198,7 @@ const findInDB = async ({ collectionName, mongoQuery, res }) => {
   }
 };
 
-const findOneInDB = async ({ collectionName, mongoQuery, res }) => {
+const findOneInDB = async ({ collectionName, mongoQuery }) => {
   try {
     const { db, client } = await connectToDB();
     const data = await db.collection(collectionName).findOne(mongoQuery);
@@ -256,6 +268,27 @@ const updateOneInDB = async ({ collectionName, mongoQuery, updates }) => {
   }
 };
 
+const DeleteOneInDB = async ({ collectionName, mongoQuery }) => {
+  try {
+    const { db, client } = await connectToDB();
+    const result = await db.collection(collectionName).deleteOne(mongoQuery);
+
+    client.close();
+
+    if (result.deletedCount === 1) {
+      return { status: 200, message: "success" };
+    } else {
+      return { status: 400, message: "bad request" };
+    }
+  } catch (err) {
+    console.log("the error was ", err);
+    if (client) {
+      client.close();
+    }
+    return { status: 500, message: "error" };
+  }
+};
+
 module.exports = {
   handleGoogleLogin,
   getAllCategories,
@@ -263,6 +296,7 @@ module.exports = {
   getTutorProfileByUsername,
   updateTutorProfileByUsername,
   getAllOrders,
+  deleteOrderById,
   getOrdersByTutorUsername,
   createOrder,
   getUserByUsername,

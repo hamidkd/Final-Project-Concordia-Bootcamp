@@ -8,6 +8,7 @@ const AdminDashboard = () => {
   const [orders, setOrders] = useState(null);
   const [tutors, setTutors] = useState(null);
   const [selectedTutor, setSelectedTutor] = useState(null);
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
     fetch("/api/orders")
@@ -18,7 +19,7 @@ const AdminDashboard = () => {
           setOrders(json.data);
         }
       });
-  }, []);
+  }, [refresh]);
 
   useEffect(() => {
     fetch("/api/tutors")
@@ -43,12 +44,39 @@ const AdminDashboard = () => {
   console.log("Orders", orders);
   console.log("tutors", tutors);
 
+  const deleteHandler = (event) => {
+    console.log("fake deleting");
+    console.log("_id", event.target.value);
+
+    const _id = event.target.value;
+
+    fetch("/api/orders/" + _id + "/delete", {
+      method: "DELETE",
+    })
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
+      .then((json) => {
+        console.log("deleted?", json);
+        if (json.status === 200) {
+          setRefresh((refresh) => refresh + 1);
+        }
+      });
+  };
+
   return (
     <Div>
       <h2>Admin Dashboard</h2>
       <Div className="card">
-        <h2>Total Sale</h2>
-        {orders && <Orders orders={orders} />}
+        <h2>All Purchases</h2>
+        {orders && (
+          <Orders
+            orders={orders}
+            isDelitable={true}
+            deleteHandler={deleteHandler}
+          />
+        )}
       </Div>
       <Div className="card">
         <h2>Edit Classes</h2>

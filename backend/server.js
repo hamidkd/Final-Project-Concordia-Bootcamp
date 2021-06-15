@@ -7,6 +7,7 @@ const {
   getTutorProfileByUsername,
   updateTutorProfileByUsername,
   getAllOrders,
+  deleteOrderById,
   getOrdersByTutorUsername,
   createOrder,
   getUserByUsername,
@@ -32,6 +33,7 @@ app.get("/api/tutors", getAllTutors);
 app.get("/api/tutors/:username", getTutorProfileByUsername);
 app.patch("/api/tutors/:tutorUsername/update", updateTutorProfileByUsername);
 app.get("/api/orders", getAllOrders);
+app.delete("/api/orders/:orderId/delete", deleteOrderById);
 app.get("/api/orders/:tutorUsername", getOrdersByTutorUsername);
 app.post("/api/orders/:tutorUsername", createOrder);
 app.get("/api/users/:username", getUserByUsername);
