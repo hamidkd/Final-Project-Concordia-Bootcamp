@@ -5,8 +5,13 @@ import { themeVars } from "./GlobalStyles";
 import Modal from "./Modal";
 import EditClassInfo from "./EditClassInfo";
 
-const ClassInfoCard = ({ tutor, isEditable }) => {
+const ClassInfoCard = ({ theTutor, isEditable }) => {
   const [isInEditMode, setIsInEditeMode] = useState(false);
+  const [tutor, setTutor] = useState(theTutor);
+
+  useEffect(() => {
+    setTutor(theTutor);
+  }, [theTutor]);
 
   //   useEffect(() => {
   //     window.addEventListener("click", handleClick);
@@ -21,6 +26,10 @@ const ClassInfoCard = ({ tutor, isEditable }) => {
     if (isInEditMode) {
       setIsInEditeMode(false);
     }
+  };
+
+  const updateTutor = (updatedTutor) => {
+    setTutor(updatedTutor);
   };
 
   return (
@@ -48,7 +57,7 @@ const ClassInfoCard = ({ tutor, isEditable }) => {
             </button>
           )}
           <Modal isVisible={isInEditMode} close={() => setIsInEditeMode(false)}>
-            <EditClassInfo tutor={tutor} />
+            <EditClassInfo tutor={tutor} updateTutor={updateTutor} />
           </Modal>
         </Div>
       )}

@@ -9,7 +9,7 @@ import Input from "./Input";
 import Loading from "./Loading";
 import { useAuth } from "./AuthProvider";
 
-const EditClassInfo = ({ tutor }) => {
+const EditClassInfo = ({ tutor, updateTutor }) => {
   const [formData, setFormData] = useState(null);
   const [status, setStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -31,9 +31,11 @@ const EditClassInfo = ({ tutor }) => {
       .then((json) => {
         console.log("here");
         if (json.status === 200) {
-          console.log("it was successful");
-          setCurrentUser(json.data);
-          localStorage.setItem("currentUser", JSON.stringify(json.data));
+          if (currentUser.role === "tutor") {
+            setCurrentUser(json.data);
+            localStorage.setItem("currentUser", JSON.stringify(json.data));
+          }
+          updateTutor(json.data);
           setStatus("Successfully Updated!");
           setIsLoading(false);
         } else {
@@ -52,7 +54,6 @@ const EditClassInfo = ({ tutor }) => {
     });
   };
 
-  console.log("FormData", formData);
   return (
     <>
       <Div>
