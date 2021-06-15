@@ -6,8 +6,10 @@ import { themeVars } from "./GlobalStyles";
 const Hero = () => {
   return (
     <Section>
-      <h2 className='hero-title'>Private Online Classes for kids</h2>
-      <Link className='big-button' to='/tutors' >Select a class</Link>
+      <h2 className="hero-title">Master Classes for Kids</h2>
+      <Link className="big-button" to="/tutors">
+        Select a class
+      </Link>
     </Section>
   );
 };
