@@ -57,11 +57,10 @@ const CheckOut = () => {
       .then((res) => res.json())
       .then((json) => {
         if (json.status === 200) {
-          history.push("/reserve-class/confirmation");
+          history.push("/confirmation");
         }
       });
   };
-
 
   return (
     <Div>
@@ -100,7 +99,7 @@ const CheckOut = () => {
               min="0"
               max="17"
               steps="1"
-              required={true}
+              required={false}
               changeHandler={handleFormDataCahnge}
             />
             <Input

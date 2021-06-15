@@ -23,7 +23,7 @@ const TutorDashboard = ({}) => {
   return (
     <Div className="dashboard">
       <h2>Tutor Dashboard</h2>
-      <ClassInfoCard tutor={currentUser} />
+      <ClassInfoCard tutor={currentUser} isEditable={true}/>
 
       <Div className="sale-info">
         <h3>Sales Info</h3>

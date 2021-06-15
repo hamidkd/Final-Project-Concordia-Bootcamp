@@ -13,7 +13,7 @@ import FilterProvider from "./FilterProvider";
 import Collection from "./Collection";
 import TutorProfile from "./TutorProfile";
 import Dashboard from "./Dashboard";
-import EditClassInfo from './EditClassInfo';
+import EditClassInfo from "./EditClassInfo";
 import Footer from "./Footer";
 import NotFoundPage from "./NotFoundPage";
 
@@ -35,7 +35,7 @@ function App() {
             <Route path="/reserve-class">
               <CheckOut title="hello" />
             </Route>
-            <Route exact path="/reserve-class/confirmation">
+            <Route exact path="/confirmation">
               <Confirmation />
             </Route>
             <Route path="/tutors/:username">
@@ -49,7 +49,7 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <PrivateRoute path='/edit-class-info'>
+            <PrivateRoute path="/edit-class-info">
               <EditClassInfo />
             </PrivateRoute>
 

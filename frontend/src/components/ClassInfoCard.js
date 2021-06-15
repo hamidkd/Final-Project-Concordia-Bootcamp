@@ -5,7 +5,7 @@ import { themeVars } from "./GlobalStyles";
 import Modal from "./Modal";
 import EditClassInfo from "./EditClassInfo";
 
-const ClassInfoCard = ({ tutor }) => {
+const ClassInfoCard = ({ tutor, isEditable }) => {
   const [isInEditMode, setIsInEditeMode] = useState(false);
 
   //   useEffect(() => {
@@ -39,12 +39,14 @@ const ClassInfoCard = ({ tutor }) => {
           <h4>category:</h4>
           <p>{tutor.category}</p>
           <h4>Number of Sessions:</h4>
-          <p>{tutor.numberOfSession}</p>
+          <p>{tutor.numberOfSessions}</p>
           <h4>Session Duration:</h4>
-          <p>{tutor.sessionDuration}</p>
-          <button className="button" onClick={() => setIsInEditeMode(true)}>
-            {isInEditMode ? "Editting" : "Edit Class Info"}
-          </button>
+          <p>{tutor.sessionDuration} minutes</p>
+          {isEditable && (
+            <button className="button" onClick={() => setIsInEditeMode(true)}>
+              {isInEditMode ? "Editting" : "Edit Class Info"}
+            </button>
+          )}
           <Modal isVisible={isInEditMode} close={() => setIsInEditeMode(false)}>
             <EditClassInfo tutor={tutor} />
           </Modal>
