@@ -16,6 +16,7 @@ import Dashboard from "./Dashboard";
 import EditClassInfo from "./EditClassInfo";
 import Footer from "./Footer";
 import NotFoundPage from "./NotFoundPage";
+import MyClasses from "./MyClasses";
 
 function App() {
   return (
@@ -48,6 +49,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute path="/my-classes">
+              <MyClasses />
             </PrivateRoute>
             <PrivateRoute path="/edit-class-info">
               <EditClassInfo />

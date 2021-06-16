@@ -8,6 +8,7 @@ const Order = ({ order, isDelitable, deleteHandler }) => {
   console.log('id', _id);
   return (
     <Tr>
+      <td>{tutorUsername}</td>
       <td>{firstname}</td>
       <td>{lastname}</td>
       <td>{age}</td>

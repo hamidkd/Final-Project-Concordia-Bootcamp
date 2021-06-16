@@ -11,6 +11,7 @@ const {
   getOrdersByTutorUsername,
   createOrder,
   getUserByUsername,
+  getOrdersByByEmail,
   } = require("./handlers");
 
 const express = require("express");
@@ -35,6 +36,7 @@ app.patch("/api/tutors/:tutorUsername/update", updateTutorProfileByUsername);
 app.get("/api/orders", getAllOrders);
 app.delete("/api/orders/:orderId/delete", deleteOrderById);
 app.get("/api/orders/:tutorUsername", getOrdersByTutorUsername);
+app.get("/api/orders/email/:email", getOrdersByByEmail);
 app.post("/api/orders/:tutorUsername", createOrder);
 app.get("/api/users/:username", getUserByUsername);
 

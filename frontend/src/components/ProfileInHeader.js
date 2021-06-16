@@ -56,7 +56,12 @@ const ProfileInHeader = () => {
           </button>
           {isProfileMenuVisible && (
             <div className="profile-menu">
-              {currentUser.role !== "user" && (
+              {currentUser.role === "user" ?
+              (
+              <Link to="/my-classes">My Classes</Link>
+              )
+              :
+               (
                 <Link to="/dashboard">Dashboard</Link>
               )}
               <button className="log-out-button" onClick={handleLogOut}>

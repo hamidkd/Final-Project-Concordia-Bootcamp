@@ -130,6 +130,17 @@ const deleteOrderById = async (req, res) => {
 
   res.status(result.status).json(result);
 };
+
+const getOrdersByByEmail = async (req, res) => {
+  const { email } = req.params;
+
+  const result = await findInDB({
+    collectionName: "classReservations",
+    mongoQuery: { email: email },
+  });
+  res.status(result.status).json(result);
+};
+
 const getOrdersByTutorUsername = async (req, res) => {
   const { tutorUsername } = req.params;
   const result = await findInDB({
@@ -298,6 +309,7 @@ module.exports = {
   getAllOrders,
   deleteOrderById,
   getOrdersByTutorUsername,
+  getOrdersByByEmail,
   createOrder,
   getUserByUsername,
 };
