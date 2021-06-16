@@ -114,6 +114,21 @@ const updateTutorProfileByUsername = async (req, res) => {
   res.status(result.status).json({ ...result, data });
 };
 
+const addReviewBytutorUsername = async (req, res) => {
+  const { tutorUsername } = req.params;
+
+  const mongoQuery = { username: tutorUsername };
+  const pushQuery = { reviews: req.body };
+
+  const result = await pushToArrayInDB({
+    collectionName: "tutors",
+    mongoQuery,
+    pushQuery,
+  });
+
+  res.status(result.status).json(result);
+};
+
 const getAllOrders = async (req, res) => {
   const result = await findInDB({ collectionName: "classReservations" });
   res.status(result.status).json(result);
@@ -274,7 +289,6 @@ const insertOneInDB = async ({ collectionName, document }) => {
 const updateOneInDB = async ({ collectionName, mongoQuery, updates }) => {
   try {
     const { db, client } = await connectToDB();
-    console.log(mongoQuery);
     const result = await db
       .collection("tutors")
       .updateOne(mongoQuery, { $set: updates });
@@ -282,6 +296,33 @@ const updateOneInDB = async ({ collectionName, mongoQuery, updates }) => {
     client.close();
 
     if (result.matchedCount === 1) {
+      return { status: 200, message: "success, the one document updated" };
+    } else {
+      return { status: 400, message: "bad request, couldn't do this request." };
+    }
+  } catch (err) {
+    console.log("the error was", err);
+    if (client) {
+      client.close();
+    }
+    return { status: 500, message: "error, couldn't create new user." };
+  }
+};
+
+const pushToArrayInDB = async ({ collectionName, mongoQuery, pushQuery }) => {
+  try {
+    const { db, client } = await connectToDB();
+    const result = await db
+      .collection(collectionName)
+      .updateOne(mongoQuery, {
+        $push: pushQuery,
+      });
+
+    client.close();
+
+    // console.log("RRRRRRRRRR", result);
+
+    if (result.modifiedCount === 1) {
       return { status: 200, message: "success, the one document updated" };
     } else {
       return { status: 400, message: "bad request, couldn't do this request." };
@@ -322,6 +363,7 @@ module.exports = {
   getAllTutors,
   getTutorProfileByUsername,
   updateTutorProfileByUsername,
+  addReviewBytutorUsername,
   getAllOrders,
   deleteOrderById,
   getOrdersByTutorUsername,

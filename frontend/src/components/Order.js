@@ -1,11 +1,28 @@
 import React from "react";
 import Styled from "styled-components";
-import {BiTrash} from 'react-icons/bi'
+import { BiTrash } from "react-icons/bi";
 
-const Order = ({ order, isDelitable, deleteHandler }) => {
-  const { _id, tutorUsername, firstname, lastname, age, email, phone, classname, tutorFirstname, tutorLastname } = order;
+const Order = ({
+  order,
+  isDelitable,
+  deleteHandler,
+  isReviewable,
+  reviewHandler,
+}) => {
+  const {
+    _id,
+    tutorUsername,
+    firstname,
+    lastname,
+    age,
+    email,
+    phone,
+    classname,
+    tutorFirstname,
+    tutorLastname,
+  } = order;
 
-  console.log('id', _id);
+  console.log("id", _id);
   return (
     <Tr>
       <td>{classname}</td>
@@ -15,7 +32,20 @@ const Order = ({ order, isDelitable, deleteHandler }) => {
       <td>{age}</td>
       <td>{email}</td>
       <td>{phone}</td>
-      {isDelitable && <td className='delete-icon'><button className='delete-button' value={_id} onClick={deleteHandler}>delete</button></td>}
+      {isDelitable && (
+        <td className="delete-icon">
+          <button className="delete-button" value={_id} onClick={deleteHandler}>
+            Delete
+          </button>
+        </td>
+      )}
+      {isReviewable && (
+        <td>
+          <button className="review-button" value={tutorUsername} onClick={reviewHandler}>
+            Review
+          </button>
+        </td>
+      )}
     </Tr>
   );
 };
@@ -28,12 +58,17 @@ const Tr = Styled.tr`
   text-align: center;
 }
 
-.delete-button {
-  font-size: 0.7em;
+.delete-button, .review-button {
+  font-size: 0.9em;
   box-shadow: none;
   padding: 0;
   margin: 0 auto;
   background: none;
   color: red;
 }
+
+.review-button {
+  color: green;
+}
+
 `;

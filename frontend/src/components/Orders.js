@@ -2,7 +2,7 @@ import React from "react";
 import Styled from "styled-components";
 import Order from "./Order";
 
-const Orders = ({ orders, isDelitable, deleteHandler }) => {
+const Orders = ({ orders, isDelitable, deleteHandler,isReviewable , reviewHandler }) => {
   const tableHeaderOrder = {
     tutorUsername: "Tutor Username",
     firstname: "firstname",
@@ -23,6 +23,7 @@ const Orders = ({ orders, isDelitable, deleteHandler }) => {
           <th>Email</th>
           <th>Phone</th>
           {isDelitable && <th>Delete</th>}
+          {isReviewable && <th>Review</th>}
         </tr>
         {orders.map((order) => {
           return (
@@ -30,6 +31,8 @@ const Orders = ({ orders, isDelitable, deleteHandler }) => {
               order={order}
               isDelitable={isDelitable}
               deleteHandler={deleteHandler}
+              isReviewable={isReviewable}
+              reviewHandler={reviewHandler}
             ></Order>
           );
         })}
