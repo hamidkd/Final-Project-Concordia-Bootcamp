@@ -44,7 +44,7 @@ background-size: cover;
   color: white !important;
   font-size: 5em;
   color: ${themeVars.primaryColor};
-  max-width: 800px;
+  max-width: 700px;
 }
 
 `;

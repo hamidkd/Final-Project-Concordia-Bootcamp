@@ -39,12 +39,20 @@ const CheckOut = () => {
     const key = event.target.name;
     const value = event.target.value;
     setFormData(() => {
-      return { ...formData, [key]: value };
+      return {
+        ...formData,
+        [key]: value,
+        classname: tutor.classname,
+        tutorFirstname: tutor.firstname,
+        tutorLastname: tutor.lastname,
+      };
     });
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
+
+    // setFormData(() => { return { ...formData, classname: tutor.classname, tutorFirstname: tutor.firstname, tutorLastname: tutor.lastname }});
 
     fetch("/api/orders/" + tutor.username, {
       method: "POST",

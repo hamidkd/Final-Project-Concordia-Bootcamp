@@ -3,12 +3,13 @@ import Styled from "styled-components";
 import {BiTrash} from 'react-icons/bi'
 
 const Order = ({ order, isDelitable, deleteHandler }) => {
-  const { _id, tutorUsername, firstname, lastname, age, email, phone } = order;
+  const { _id, tutorUsername, firstname, lastname, age, email, phone, classname, tutorFirstname, tutorLastname } = order;
 
   console.log('id', _id);
   return (
     <Tr>
-      <td>{tutorUsername}</td>
+      <td>{classname}</td>
+      <td>{tutorFirstname + " " + tutorLastname}</td>
       <td>{firstname}</td>
       <td>{lastname}</td>
       <td>{age}</td>

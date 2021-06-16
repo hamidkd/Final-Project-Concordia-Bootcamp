@@ -151,15 +151,28 @@ const getOrdersByTutorUsername = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const { firstname, lastname, age, email, phone, creditCard, expirationDate } =
-    req.body;
+  const {
+    firstname,
+    lastname,
+    age,
+    email,
+    phone,
+    creditCard,
+    expirationDate,
+    classname,
+    tutorFirstname,
+    tutorLastname,
+  } = req.body;
   if (
     !firstname ||
     !lastname ||
     !email ||
     !phone ||
     !creditCard ||
-    !expirationDate
+    !expirationDate ||
+    !classname ||
+    !tutorFirstname ||
+    !tutorLastname
   ) {
     res.status(400).json({
       status: 400,
@@ -179,6 +192,9 @@ const createOrder = async (req, res) => {
     age,
     email,
     phone,
+    classname,
+    tutorFirstname,
+    tutorLastname,
   };
 
   await db.collection("classReservations").insertOne(insertQuery);
