@@ -16,7 +16,7 @@ const Orders = ({ orders, isDelitable, deleteHandler }) => {
       <table className="table">
         <tr>
           <th>Class</th>
-          <th>Tutor</th>
+          <th>Instructor</th>
           <th>Firstname</th>
           <th>Lastname</th>
           <th>Age</th>

@@ -44,7 +44,9 @@ const ProfileInHeader = () => {
         <>
           <div>
             <p>Hi, {currentUser.firstname}</p>
-            <p className="role">{currentUser.role}</p>
+            <p className="role">
+              {currentUser.role === "tutor" ? "Instructor" : currentUser.role}
+            </p>
           </div>
           <button className="profile-button" onClick={showProfileMenu}>
             <img
@@ -56,12 +58,9 @@ const ProfileInHeader = () => {
           </button>
           {isProfileMenuVisible && (
             <div className="profile-menu">
-              {currentUser.role === "user" ?
-              (
-              <Link to="/my-classes">My Classes</Link>
-              )
-              :
-               (
+              {currentUser.role === "user" ? (
+                <Link to="/my-classes">My Classes</Link>
+              ) : (
                 <Link to="/dashboard">Dashboard</Link>
               )}
               <button className="log-out-button" onClick={handleLogOut}>

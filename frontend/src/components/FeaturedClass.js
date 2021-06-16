@@ -80,10 +80,11 @@ display: flex;
 
 @media only screen and (max-width: 800px) {
   flex-direction: column;
+  max-width: 400px;
   .banner {
     /* max-width: 40rem; */
-max-width: 100%;
-aspect-ratio: 1/1;
+/* max-width: 100%; */
+/* aspect-ratio: 1/1; */
   }
 }
 .card-body {
