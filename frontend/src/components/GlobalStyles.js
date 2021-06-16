@@ -30,7 +30,8 @@ p,
 a,
 li,
 blockquote,
-input {
+input,
+textarea {
   font-family: ${themeVars.contentFont};
 }
 

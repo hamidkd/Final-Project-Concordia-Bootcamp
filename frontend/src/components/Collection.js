@@ -115,6 +115,8 @@ h2 {
     padding-right: 2rem ;
     padding-left: 2rem ;
     padding-block: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
