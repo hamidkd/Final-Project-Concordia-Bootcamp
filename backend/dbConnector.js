@@ -16,7 +16,6 @@ const connectToDB = async () => {
   return { db, client };
 };
 
-
 const findInDB = async ({ collectionName, mongoQuery }) => {
   try {
     const { db, client } = await connectToDB();
@@ -101,14 +100,11 @@ const updateOneInDB = async ({ collectionName, mongoQuery, updates }) => {
 const pushToArrayInDB = async ({ collectionName, mongoQuery, pushQuery }) => {
   try {
     const { db, client } = await connectToDB();
-    const result = await db
-      .collection(collectionName)
-      .updateOne(mongoQuery, {
-        $push: pushQuery,
-      });
+    const result = await db.collection(collectionName).updateOne(mongoQuery, {
+      $push: pushQuery,
+    });
 
     client.close();
-
 
     if (result.modifiedCount === 1) {
       return { status: 200, message: "success, the one document updated" };
@@ -145,4 +141,12 @@ const deleteOneInDB = async ({ collectionName, mongoQuery }) => {
   }
 };
 
-module.exports = { connectToDB, findInDB, findOneInDB, insertOneInDB, updateOneInDB, pushToArrayInDB , deleteOneInDB };
+module.exports = {
+  connectToDB,
+  findInDB,
+  findOneInDB,
+  insertOneInDB,
+  updateOneInDB,
+  pushToArrayInDB,
+  deleteOneInDB,
+};
