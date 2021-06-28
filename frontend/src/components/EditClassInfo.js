@@ -29,7 +29,6 @@ const EditClassInfo = ({ tutor, updateTutor }) => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log("here");
         if (json.status === 200) {
           if (currentUser.role === "tutor") {
             setCurrentUser(json.data);
@@ -46,7 +45,6 @@ const EditClassInfo = ({ tutor, updateTutor }) => {
   };
 
   const handleFormDataCahnge = (event) => {
-    console.log("Faking handleing change");
     const key = event.target.name;
     const value = event.target.value;
     setFormData(() => {

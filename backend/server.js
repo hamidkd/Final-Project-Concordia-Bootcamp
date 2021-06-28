@@ -12,15 +12,17 @@ const {
   createOrder,
   getUserByUsername,
   getOrdersByByEmail,
-  addReviewBytutorUsername
-  } = require("./handlers");
+  addReviewBytutorUsername,
+} = require("./handlers");
 
 const express = require("express");
 var bodyParser = require("body-parser");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const app = express();
 //this will give you HTTP requests log in console
+app.use(cors());
 app.use(morgan("tiny"));
 
 app.use(bodyParser());
@@ -40,7 +42,7 @@ app.delete("/api/orders/:orderId/delete", deleteOrderById);
 app.get("/api/orders/:tutorUsername", getOrdersByTutorUsername);
 app.get("/api/orders/email/:email", getOrdersByByEmail);
 app.post("/api/orders/:tutorUsername", createOrder);
-app.get("/api/users/:username", getUserByUsername);
+// app.get("/api/users/:username", getUserByUsername);
 
 // this is the catch all endpoint ---------------------------------
 

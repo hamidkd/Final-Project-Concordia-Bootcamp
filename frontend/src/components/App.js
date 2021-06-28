@@ -1,6 +1,5 @@
 import Styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
-import ResetStyles from "./ResetStyles";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
@@ -24,7 +23,6 @@ function App() {
       <Div>
         <Header />
         <Main>
-          <ResetStyles />
           <GlobalStyles />
           <Switch>
             <Route exact path="/">

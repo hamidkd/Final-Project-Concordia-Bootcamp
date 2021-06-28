@@ -14,7 +14,6 @@ const AdminDashboard = () => {
     fetch("/api/orders")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         if (json.status === 200) {
           setOrders(json.data);
         }
@@ -25,7 +24,6 @@ const AdminDashboard = () => {
     fetch("/api/tutors")
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         if (json.status === 200) {
           setTutors(json.data);
         }
@@ -41,12 +39,8 @@ const AdminDashboard = () => {
     setSelectedTutor(() => st);
   };
 
-  console.log("Orders", orders);
-  console.log("tutors", tutors);
 
   const deleteHandler = (event) => {
-    console.log("fake deleting");
-    console.log("_id", event.target.value);
 
     const _id = event.target.value;
 
@@ -54,11 +48,9 @@ const AdminDashboard = () => {
       method: "DELETE",
     })
       .then((res) => {
-        console.log(res);
         return res.json();
       })
       .then((json) => {
-        console.log("deleted?", json);
         if (json.status === 200) {
           setRefresh((refresh) => refresh + 1);
         }

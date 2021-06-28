@@ -35,7 +35,6 @@ const CheckOut = () => {
   }, [query.get("tutor")]);
 
   const handleFormDataCahnge = (event) => {
-    console.log("Faking handleing change");
     const key = event.target.name;
     const value = event.target.value;
     setFormData(() => {

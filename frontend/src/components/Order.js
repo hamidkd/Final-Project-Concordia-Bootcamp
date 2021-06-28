@@ -22,7 +22,6 @@ const Order = ({
     tutorLastname,
   } = order;
 
-  console.log("id", _id);
   return (
     <Tr>
       <td>{classname}</td>

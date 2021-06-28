@@ -8,7 +8,7 @@ const GOOGLE_OAUTH2_CLIENT_ID = process.env.GOOGLE_OAUTH2_CLIENT_ID;
 
 const oAuth2Client = new OAuth2Client(GOOGLE_OAUTH2_CLIENT_ID);
 
-const { connectToDB } = require("./dbConnector");
+const { connectToDB, findInDB, findOneInDB, insertOneInDB, updateOneInDB, pushToArrayInDB , deleteOneInDB } = require("./dbConnector");
 const { ObjectID } = require("mongodb");
 
 const handleGoogleLogin = async (req, res) => {
@@ -19,8 +19,6 @@ const handleGoogleLogin = async (req, res) => {
     .then(async (response) => {
       const { given_name, family_name, picture, email, email_verified, name } =
         response.payload;
-      console.log("respayload", response.payload);
-      console.log("reqbody", req.body);
 
       if (email_verified) {
         const result = await findOneInDB({
@@ -84,9 +82,6 @@ const getTutorProfileByUsername = async (req, res) => {
     collectionName: "tutors",
     mongoQuery: { username: req.params.username.toLowerCase() },
   });
-  // if (result.status === 200) {
-  //   result.data.avatarImg = tutorImgs[result.data.username].avatarImg;
-  // }
 
   res.status(result.status).json(result);
 };
@@ -199,7 +194,6 @@ const createOrder = async (req, res) => {
   const { db, client } = await connectToDB();
   const { tutorUsername } = req.params;
 
-  // const mongoQuery = { username: tutorUsername };
   const insertQuery = {
     tutorUsername,
     firstname,
@@ -219,143 +213,10 @@ const createOrder = async (req, res) => {
   res.status(200).json({ status: 200, message: "reservation made" });
 };
 
-const getUserByUsername = async (req, res) => {
-  console.log("Fake Get user by username");
-  res.status(200).json({ status: 200, messge: "fake response" });
-};
+// const getUserByUsername = async (req, res) => {
+//   res.status(200).json({ status: 200, messge: "fake response" });
+// };
 
-const findInDB = async ({ collectionName, mongoQuery, res }) => {
-  try {
-    const { db, client } = await connectToDB();
-
-    const data = await db.collection(collectionName).find(mongoQuery).toArray();
-
-    client.close();
-    return { status: 200, message: "success", data };
-  } catch (err) {
-    if (client) {
-      client.close();
-    }
-    return { status: 500, message: "error" };
-  }
-};
-
-const findOneInDB = async ({ collectionName, mongoQuery }) => {
-  try {
-    const { db, client } = await connectToDB();
-    const data = await db.collection(collectionName).findOne(mongoQuery);
-
-    client.close();
-
-    if (data) {
-      return { status: 200, message: "success", data };
-    } else {
-      return { status: 400, message: "bad request" };
-    }
-  } catch (err) {
-    console.log("the error was ", err);
-    if (client) {
-      client.close();
-    }
-    return { status: 500, message: "error" };
-  }
-};
-
-const insertOneInDB = async ({ collectionName, document }) => {
-  try {
-    const { db, client } = await connectToDB();
-    const result = await db.collection(collectionName).insertOne(document);
-
-    client.close();
-
-    if (result.insertedCount === 1) {
-      return { status: 201, message: "success, new user created." };
-    } else {
-      return { status: 400, message: "bad request, couldn't create new user." };
-    }
-  } catch (err) {
-    console.log("the error was", err);
-    if (client) {
-      client.close();
-    }
-    return { status: 500, message: "error, couldn't create new user." };
-  }
-};
-
-// collectionName: "tutors",
-// mongoQuery: { username: tutorUsername },
-// updates: { $set: { ...updates } }
-
-const updateOneInDB = async ({ collectionName, mongoQuery, updates }) => {
-  try {
-    const { db, client } = await connectToDB();
-    const result = await db
-      .collection("tutors")
-      .updateOne(mongoQuery, { $set: updates });
-
-    client.close();
-
-    if (result.matchedCount === 1) {
-      return { status: 200, message: "success, the one document updated" };
-    } else {
-      return { status: 400, message: "bad request, couldn't do this request." };
-    }
-  } catch (err) {
-    console.log("the error was", err);
-    if (client) {
-      client.close();
-    }
-    return { status: 500, message: "error, couldn't create new user." };
-  }
-};
-
-const pushToArrayInDB = async ({ collectionName, mongoQuery, pushQuery }) => {
-  try {
-    const { db, client } = await connectToDB();
-    const result = await db
-      .collection(collectionName)
-      .updateOne(mongoQuery, {
-        $push: pushQuery,
-      });
-
-    client.close();
-
-    // console.log("RRRRRRRRRR", result);
-
-    if (result.modifiedCount === 1) {
-      return { status: 200, message: "success, the one document updated" };
-    } else {
-      return { status: 400, message: "bad request, couldn't do this request." };
-    }
-  } catch (err) {
-    console.log("the error was", err);
-    if (client) {
-      client.close();
-    }
-    return { status: 500, message: "error, couldn't create new user." };
-  }
-};
-
-const DeleteOneInDB = async ({ collectionName, mongoQuery }) => {
-  try {
-    const { db, client } = await connectToDB();
-    const result = await db.collection(collectionName).deleteOne(mongoQuery);
-
-    client.close();
-
-    if (result.deletedCount === 1) {
-      return { status: 200, message: "success" };
-    } else {
-      return { status: 400, message: "bad request" };
-    }
-  } catch (err) {
-    console.log("the error was ", err);
-    if (client) {
-      client.close();
-    }
-    return { status: 500, message: "error" };
-  }
-};
 
 module.exports = {
   handleGoogleLogin,

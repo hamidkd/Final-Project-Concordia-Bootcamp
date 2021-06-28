@@ -14,14 +14,10 @@ const TutorProfile = () => {
     fetch("/api/tutors/" + username)
       .then((res) => res.json())
       .then((json) => {
-        // if (json.status === 200) {
-        console.log(json);
         setTutor(json.data);
-        // }
       });
   }, [username]);
 
-  console.log(tutor);
   return (
     <Div>
       {tutor && (

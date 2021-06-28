@@ -22,7 +22,6 @@ const ClassInfoCard = ({ theTutor, isEditable }) => {
   //   }, [isInEditMode]);
 
   const handleClick = (event) => {
-    console.log("targe type", Object.keys(event.target));
     if (isInEditMode) {
       setIsInEditeMode(false);
     }
