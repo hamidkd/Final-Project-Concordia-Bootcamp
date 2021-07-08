@@ -1,2 +1,3 @@
-# Final-Project-Concordia-Bootcamp
-This is My Final Project for Concordia Bootcamp which is a website for ordering private tutoring. 
+# KidCademy: Master Classes for kids
+
+This is My Final Project for Concordia Bootcamp which is parent can get master classes for their kids
