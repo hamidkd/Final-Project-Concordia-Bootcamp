@@ -10,13 +10,34 @@ const Footer = () => {
         <span>Kid</span>Cademy
       </h3>
       <div>
-        <h4>About Us</h4>
+        <div className="flex-column">
+          <h4>About Us</h4>
+          <p>Who we are</p>
+          <p>Our values</p>
+        </div>
+        <div className="flex-column">
+          <h4>Contact Us</h4>
+          <p>Customer Care</p>
+          <p>Be an instructor</p>
+        </div>
+        <div className="flex-column">
+          <h4>Terms of Service</h4>
+          <p>Privacy Policy</p>
+          <p>Cookies</p>
+        </div>
 
-        <h4>Contact Us</h4>
-
-        <h4>Terms of Service</h4>
-
-        <h4>Social Media</h4>
+        <div className="flex-column">
+          <h4>Social Media</h4>
+          <p>Instagram</p>
+          <p>Twitter</p>
+        </div>
+      </div>
+      <div className="footnote">
+        <p>Created with ❤️ by Hamid Keshmiri</p>
+        <p>
+          See the source in{" "}
+          <a href="https://github.com/hamidkd/kidcademy-frontend">GitHub</a>
+        </p>
       </div>
     </StyledFooter>
   );
@@ -49,9 +70,28 @@ display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
 }
-
 h4 {
   padding: 1rem;
   color: white;
 }
+
+.flex-column {
+  h4 {
+    padding: 0;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+}
+
+.footnote {
+  margin-top: 1rem;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
 `;
