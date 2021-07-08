@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Styled from "styled-components";
 import { themeVars } from "./GlobalStyles";
 
-import ProfileInHeader from "./ProfileInHeader";
+import ProfileInHeader from "./auth/ProfileInHeader";
 import { AppContext } from "./AppProvider";
-import { useAuth } from "./AuthProvider";
+import { useAuth } from "./auth/AuthProvider";
 
 const Header = () => {
   const { currentUser } = useAuth();
@@ -19,7 +19,7 @@ const Header = () => {
               <span>Kid</span>Cademy
             </h1>
           </Link>
-          <Link to="/tutors">Classes</Link>
+          <Link to="/classe">Classes</Link>
         </nav>
 
         <ProfileInHeader />

@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { FilterContext } from "./FilterProvider";
 import Styled from "styled-components";
-import Loading from "./Loading";
-import { themeVars } from "./GlobalStyles";
+import Loading from "../utils/Loading";
+import { themeVars } from "../GlobalStyles";
 
 const FilterPanel = () => {
   const { filters, setFilters, updateFiltersHandler } =

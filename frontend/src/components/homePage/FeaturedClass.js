@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
-import { themeVars } from "./GlobalStyles";
+import { themeVars } from "../GlobalStyles";
 import { Link } from "react-router-dom";
 
 const FeaturedClass = ({ tutorUsername }) => {

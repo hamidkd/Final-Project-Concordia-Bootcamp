@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
-import { AppContext } from "./AppProvider";
-import { themeVars } from "./GlobalStyles";
+import { AppContext } from "../AppProvider";
+import { themeVars } from "../GlobalStyles";
 import { useAuth } from "./AuthProvider";
 import GoogleLoginButton from "./GoogleLoginButton";
 

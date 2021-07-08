@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
 
-import GoogleLoginButton from "./GoogleLoginButton";
+import GoogleLoginButton from "../auth/GoogleLoginButton";
 
 const LoginPage = () => {
   return (

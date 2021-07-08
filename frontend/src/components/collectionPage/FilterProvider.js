@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { AppContext } from "./AppProvider";
+import { AppContext } from "../AppProvider";
 import { useLocation } from "react-router-dom";
 
 export const FilterContext = createContext(null);

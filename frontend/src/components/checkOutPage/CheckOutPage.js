@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Styled from "styled-components";
-import Loading from "./Loading";
-import Form from "./Form";
-import Input from "./Input";
+import Loading from "../utils/Loading";
+import Form from "../utils/Form";
+import Input from "../utils/Input";
 
 const CheckOut = () => {
   function useQuery() {

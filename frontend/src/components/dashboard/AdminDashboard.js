@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
 import Orders from "./Orders";
-import { themeVars } from "./GlobalStyles";
+import { themeVars } from "../GlobalStyles";
 import ClassInfoCard from "./ClassInfoCard";
 
 const AdminDashboard = () => {

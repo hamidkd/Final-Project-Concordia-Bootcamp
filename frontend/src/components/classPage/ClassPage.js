@@ -4,9 +4,9 @@ import Styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import Review from "./Review";
-import { themeVars } from "./GlobalStyles";
+import { themeVars } from "../GlobalStyles";
 
-const TutorProfile = () => {
+const ClassPage = () => {
   const { username } = useParams();
   const [tutor, setTutor] = useState(null);
 
@@ -59,7 +59,7 @@ const TutorProfile = () => {
   );
 };
 
-export default TutorProfile;
+export default ClassPage;
 
 const Div = Styled.div`
 

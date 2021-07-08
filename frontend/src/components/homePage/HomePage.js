@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Styled from "styled-components";
-import { AppContext } from "./AppProvider";
+import { AppContext } from "../AppProvider";
 import FeaturedClass from "./FeaturedClass";
 
 import CategoryCard from "./CategoryCard";

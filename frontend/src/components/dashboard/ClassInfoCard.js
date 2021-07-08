@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Styled from "styled-components";
 import { Link } from "react-router-dom";
-import { themeVars } from "./GlobalStyles";
-import Modal from "./Modal";
+import { themeVars } from "../GlobalStyles";
+import Modal from "../utils/Modal";
 import EditClassInfo from "./EditClassInfo";
 
 const ClassInfoCard = ({ theTutor, isEditable }) => {
@@ -51,7 +51,10 @@ const ClassInfoCard = ({ theTutor, isEditable }) => {
           <h4>Session Duration:</h4>
           <p>{tutor.sessionDuration} minutes</p>
           {isEditable && (
-            <button className="edit-button" onClick={() => setIsInEditeMode(true)}>
+            <button
+              className="edit-button"
+              onClick={() => setIsInEditeMode(true)}
+            >
               {isInEditMode ? "Editting" : "Edit Class Info"}
             </button>
           )}

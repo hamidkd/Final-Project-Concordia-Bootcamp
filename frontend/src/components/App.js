@@ -1,21 +1,21 @@
 import Styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./auth/PrivateRoute";
 
 import Header from "./Header";
-import HomePage from "./HomePage";
-import LoginPage from "./LoginPage";
-import CheckOut from "./CheckOut";
-import Confirmation from "./Confirmation";
-import FilterProvider from "./FilterProvider";
-import Collection from "./Collection";
-import TutorProfile from "./TutorProfile";
-import Dashboard from "./Dashboard";
-import EditClassInfo from "./EditClassInfo";
+import HomePage from "./homePage/HomePage";
+import LoginPage from "./auth/LoginPage";
+import CheckOut from "./checkOutPage/CheckOutPage";
+import Confirmation from "./checkOutPage/ConfirmationPage";
+import FilterProvider from "./collectionPage/FilterProvider";
+import Collection from "./collectionPage/CollectionPage";
+import ClassPage from "./classPage/ClassPage";
+import Dashboard from "./dashboard/Dashboard";
+import EditClassInfo from "./dashboard/EditClassInfo";
 import Footer from "./Footer";
-import NotFoundPage from "./NotFoundPage";
-import MyClasses from "./MyClasses";
+import NotFoundPage from "./404/NotFoundPage";
+import MyClasses from "./dashboard/MyClasses";
 
 function App() {
   return (
@@ -38,7 +38,7 @@ function App() {
               <Confirmation />
             </Route>
             <Route path="/tutors/:username">
-              <TutorProfile />
+              <ClassPage />
             </Route>
             <Route path="/tutors">
               <FilterProvider>

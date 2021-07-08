@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router";
 import Styled from "styled-components";
-import { AppContext } from "./AppProvider";
+import { AppContext } from "../AppProvider";
 import ClassInfoCard from "./ClassInfoCard";
-import Form from "./Form";
-import { themeVars } from "./GlobalStyles";
-import Input from "./Input";
-import Loading from "./Loading";
-import { useAuth } from "./AuthProvider";
+import Form from "../utils/Form";
+import { themeVars } from "../GlobalStyles";
+import Input from "../utils/Input";
+import Loading from "../utils/Loading";
+import { useAuth } from "../auth/AuthProvider";
 
 const EditClassInfo = ({ tutor, updateTutor }) => {
   const [formData, setFormData] = useState(null);

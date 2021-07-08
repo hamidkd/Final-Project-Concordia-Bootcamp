@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import Styled from "styled-components";
 import Orders from "./Orders";
-import { useAuth } from "./AuthProvider";
+import { useAuth } from "../auth/AuthProvider";
 import ClassInfoCard from "./ClassInfoCard";
-import { themeVars } from "./GlobalStyles";
+import { themeVars } from "../GlobalStyles";
 
 const TutorDashboard = ({}) => {
   const [orders, setOrders] = useState(null);

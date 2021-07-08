@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import Styled from "styled-components";
 import Orders from "./Orders";
-import { useAuth } from "./AuthProvider";
-import Modal from "./Modal";
-import Form from "./Form";
+import { useAuth } from "../auth/AuthProvider";
+import Modal from "../utils/Modal";
+import Form from "../utils/Form";
 import ReactStars from "react-rating-stars-component";
-import { themeVars } from "./GlobalStyles";
-import Loading from "./Loading";
+import { themeVars } from "../GlobalStyles";
+import Loading from "../utils/Loading";
 
 const MyClasses = () => {
   const { currentUser } = useAuth();

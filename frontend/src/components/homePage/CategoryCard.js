@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Styled from "styled-components";
-import { themeVars } from "./GlobalStyles";
+import { themeVars } from "../GlobalStyles";
 
 let name = "";
 
@@ -9,7 +9,7 @@ const Collection = ({ category }) => {
   name = category.name;
   return (
     <Div>
-      <Link className="link" to={"/tutors?category=" + category.name}>
+      <Link className="link" to={"/classes?category=" + category.name}>
         <h3 className="category-title">{category.name}</h3>
       </Link>
     </Div>

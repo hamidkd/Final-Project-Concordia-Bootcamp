@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import Styled from "styled-components";
-import { AppContext } from "./AppProvider";
-import { themeVars } from "./GlobalStyles";
+import { AppContext } from "../AppProvider";
+import { themeVars } from "../GlobalStyles";
 
 import GoogleLogin from "react-google-login";
 
-import Input from "./Input";
+import Input from "../utils/Input";
 import { useAuth } from "./AuthProvider";
 
-const GoogleLoginButton = ({text}) => {
+const GoogleLoginButton = ({ text }) => {
   const { currentUser, setCurrentUser } = useAuth();
 
   const [formData, setFormData] = useState(null);
@@ -29,7 +29,6 @@ const GoogleLoginButton = ({text}) => {
   };
 
   const responseSuccessGoogle = (res) => {
-
     fetch("/api/googlelogin", {
       method: "POST",
       headers: {
@@ -40,8 +39,6 @@ const GoogleLoginButton = ({text}) => {
     })
       .then((res) => res.json())
       .then((json) => {
-       
-
         if (json.status === 200 || json.status === 201) {
           setCurrentUser(json.data);
           localStorage.setItem("currentUser", JSON.stringify(json.data));

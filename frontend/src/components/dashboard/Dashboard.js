@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useAuth } from "./AuthProvider";
+import { useAuth } from "../auth/AuthProvider";
 import TutorDashboard from "./TutorDashboard";
 import AdminDashboard from "./AdminDashboard";
 import { Redirect } from "react-router-dom";

@@ -4,12 +4,13 @@ import { FilterContext } from "./FilterProvider";
 import FilterPanel from "./FilterPanel";
 import SortDropDown from "./SortDropDown";
 import OnlyShowAliveCheckBox from "./OnlyShowAliveCheckBox";
-import Loading from "./Loading";
+import Loading from "../utils/Loading";
 
 import TutorCard from "./TutorCard";
 
 const Collection = () => {
-  const { filteredItems, isOnlyAliveChecked, setIsOnlyAliveChecked } = useContext(FilterContext);
+  const { filteredItems, isOnlyAliveChecked, setIsOnlyAliveChecked } =
+    useContext(FilterContext);
 
   const [sortType, setSortType] = useState("");
 
@@ -70,22 +71,20 @@ const Collection = () => {
   };
 
   const handleOnlyAlive = () => {
-    setIsOnlyAliveChecked(
-      (isOnlyAliveChecked) => !isOnlyAliveChecked
-    );
+    setIsOnlyAliveChecked((isOnlyAliveChecked) => !isOnlyAliveChecked);
   };
 
   return (
     <Div>
       <h2>Classes</h2>
       <FilterPanel />
-      <div className='controls'> 
-      <OnlyShowAliveCheckBox
-        onChangeHandler={handleOnlyAlive}
-        isOnlyAliveChecked={isOnlyAliveChecked}
+      <div className="controls">
+        <OnlyShowAliveCheckBox
+          onChangeHandler={handleOnlyAlive}
+          isOnlyAliveChecked={isOnlyAliveChecked}
         />
-      <SortDropDown onChangeHandler={handleChangeSortType} />
-        </div>
+        <SortDropDown onChangeHandler={handleChangeSortType} />
+      </div>
       {filteredItems ? (
         <ul className="tutors">
           {sortPlease(filteredItems, sortType).map((tutor, index) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from "styled-components";
-import { themeVars } from "./GlobalStyles";
+import { themeVars } from "../GlobalStyles";
 
 const Input = ({
   title,
