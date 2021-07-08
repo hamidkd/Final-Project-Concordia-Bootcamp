@@ -7,20 +7,20 @@ Live demo: https://kidcademy.netlify.app/\
 ![image](https://user-images.githubusercontent.com/78935540/124955645-3420c600-dfe5-11eb-8d34-bbb89e67aaa0.png)
 
 
-#Tehnologies Used
+# Tehnologies Used
 
 MongoDB, Node.js, Express.js, React.js, Styled-Components,
 
-#Screenshots
+# Screenshots
 
 
-#Server Endpoints
+# Server Endpoints
 
 
-#Dependencies Used in the Frontend
+# Dependencies Used in the Frontend
 
 
-#Dependencies Used in the Backend
+# Dependencies Used in the Backend
 
 
 
