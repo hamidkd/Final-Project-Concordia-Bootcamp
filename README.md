@@ -4,6 +4,7 @@ This is My Final Project for Concordia Bootcamp which is parent can get master c
 
 Live demo: https://kidcademy.netlify.app/\
 
-![image](https://user-images.githubusercontent.com/78935540/124955432-0b98cc00-dfe5-11eb-874b-25593392eb32.png)
+![image](https://user-images.githubusercontent.com/78935540/124955645-3420c600-dfe5-11eb-8d34-bbb89e67aaa0.png)
+
 
 
