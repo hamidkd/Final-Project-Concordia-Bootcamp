@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <Section>
       <h2 className="hero-title">Master Classes for your Kids</h2>
-      <Link className="big-button" to="/tutors">
+      <Link className="big-button" to="/classes">
         Select a class
       </Link>
     </Section>

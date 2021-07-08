@@ -21,7 +21,7 @@ const TutorCard = ({ tutor }) => {
 
   return (
     <Div>
-      <Link className="link" to={"/tutors/" + username}>
+      <Link className="link" to={"/classes/" + username}>
         <div className="wrapper">
           <img
             className="avatar"
@@ -37,7 +37,7 @@ const TutorCard = ({ tutor }) => {
           </p>
           <p className="tags">
             <span className="tag">
-              <Link to={"/tutors?category=" + category}>{category}</Link>
+              <Link to={"/classes?category=" + category}>{category}</Link>
             </span>
           </p>
           <p className="class-info">

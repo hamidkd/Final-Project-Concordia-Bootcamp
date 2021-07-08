@@ -37,10 +37,10 @@ function App() {
             <Route exact path="/confirmation">
               <Confirmation />
             </Route>
-            <Route path="/tutors/:username">
+            <Route path="/classes/:username">
               <ClassPage />
             </Route>
-            <Route path="/tutors">
+            <Route path="/classes">
               <FilterProvider>
                 <Collection />
               </FilterProvider>

@@ -19,7 +19,7 @@ const FeaturedClass = ({ tutorUsername }) => {
     <>
       {tutor && (
         <Div>
-          <Link to={"/tutors/" + tutor.username}>
+          <Link to={"/classes/" + tutor.username}>
             <div className="wrapper">
               <div className="banner"></div>
               <img
