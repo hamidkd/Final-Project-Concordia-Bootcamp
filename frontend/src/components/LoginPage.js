@@ -7,7 +7,8 @@ const LoginPage = () => {
   return (
     <Div>
       <p>Plaese Login to continue.</p>
-      <GoogleLoginButton />
+      <GoogleLoginButton text="Login"/>
+      <GoogleLoginButton text="Create an account"/>
     </Div>
   );
 };

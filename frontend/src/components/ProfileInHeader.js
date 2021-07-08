@@ -70,8 +70,7 @@ const ProfileInHeader = () => {
           )}
         </>
       ) : (
-        // <Link to="/login">Login</Link>
-        <GoogleLoginButton />
+        <Link to="/login">Login</Link>
       )}
     </Div>
   );

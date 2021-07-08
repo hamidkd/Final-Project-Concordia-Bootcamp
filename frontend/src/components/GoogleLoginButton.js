@@ -8,7 +8,7 @@ import GoogleLogin from "react-google-login";
 import Input from "./Input";
 import { useAuth } from "./AuthProvider";
 
-const GoogleLoginButton = () => {
+const GoogleLoginButton = ({text}) => {
   const { currentUser, setCurrentUser } = useAuth();
 
   const [formData, setFormData] = useState(null);
@@ -60,7 +60,7 @@ const GoogleLoginButton = () => {
   return (
     <GoogleLogin
       clientId="970981967092-8kp9jcceesje46te9fnr24hq2mff22ad.apps.googleusercontent.com"
-      buttonText="Login"
+      buttonText={text}
       onSuccess={responseSuccessGoogle}
       onFailure={responseErrorGoogle}
       cookiePolicy={"single_host_origin"}
