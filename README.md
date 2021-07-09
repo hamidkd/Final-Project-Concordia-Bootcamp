@@ -9,7 +9,11 @@ Live demo: https://kidcademy.netlify.app/\
 
 # Tehnologies Used
 
-MongoDB, Node.js, Express.js, React.js, Styled-Components,
+*MongoDB
+*Node.js
+*Express.js
+*React.js
+*Styled-Components
 
 # Screenshots
 
