@@ -9,7 +9,7 @@ const Footer = () => {
       <h3 className="site-title">
         <span>Kid</span>Cademy
       </h3>
-      <div>
+      <div className="links-in-footer">
         <div className="flex-column">
           <h4>About Us</h4>
           <p>Who we are</p>
@@ -47,8 +47,7 @@ export default Footer;
 
 const StyledFooter = Styled.footer`
 flex: 0;
-padding: 2rem;
-/* padding-top: 2rem; */
+padding-top: 1rem;
 background: ${themeVars.darkColor};
 
 .site-title {
@@ -57,6 +56,10 @@ background: ${themeVars.darkColor};
   span {
     color: white;
   }
+}
+
+.links-in-footer {
+padding: 2rem;
 }
 
 h3 {
@@ -88,10 +91,13 @@ h4 {
 }
 
 .footnote {
+  padding-inline: 2rem;
+  padding-block: 3rem;
   margin-top: 1rem;
   flex-direction: column;
   text-align: center;
   color: white;
+  background: #1d132b;
 }
 
 `;
