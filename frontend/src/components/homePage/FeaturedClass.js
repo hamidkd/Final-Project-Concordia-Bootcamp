@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
 import { themeVars } from "../GlobalStyles";
 import { Link } from "react-router-dom";
+import Loading from "../utils/Loading";
 
 const FeaturedClass = ({ tutorUsername }) => {
   const [tutor, setTutor] = useState(null);
@@ -17,7 +18,9 @@ const FeaturedClass = ({ tutorUsername }) => {
   }, []);
   return (
     <>
-      {tutor && (
+      {!tutor ? (
+        <Loading />
+      ) : (
         <Div>
           <Link to={"/classes/" + tutor.username}>
             <div className="wrapper">

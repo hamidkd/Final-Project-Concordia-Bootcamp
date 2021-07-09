@@ -5,6 +5,7 @@ import FeaturedClass from "./FeaturedClass";
 
 import CategoryCard from "./CategoryCard";
 import Hero from "./Hero";
+import Loading from "../utils/Loading";
 
 const HomePage = () => {
   const { categories } = useContext(AppContext);
@@ -14,18 +15,21 @@ const HomePage = () => {
       <section>
         <h2>Categories</h2>
         <ul className="categories">
-          {categories &&
+          {!categories ? (
+            <Loading />
+          ) : (
             categories.map((category) => {
               return <CategoryCard category={category} />;
-            })}
+            })
+          )}
         </ul>
       </section>
       <section>
         <h2>Featured Classes</h2>
-        <div className='featured-classes'>
-        <FeaturedClass tutorUsername="alberte" />
-        <FeaturedClass tutorUsername="vangogh" />
-        <FeaturedClass tutorUsername="billgates" />
+        <div className="featured-classes">
+          <FeaturedClass tutorUsername="alberte" />
+          <FeaturedClass tutorUsername="vangogh" />
+          <FeaturedClass tutorUsername="billgates" />
         </div>
       </section>
     </Div>
