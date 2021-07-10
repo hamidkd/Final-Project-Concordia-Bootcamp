@@ -6,6 +6,8 @@ import PrivateRoute from "./auth/PrivateRoute";
 import Header from "./Header";
 import HomePage from "./homePage/HomePage";
 import LoginPage from "./auth/LoginPage";
+import AboutPage from "./AboutPage";
+import ContactPage from "./ContactPage";
 import CheckOut from "./checkOutPage/CheckOutPage";
 import Confirmation from "./checkOutPage/ConfirmationPage";
 import FilterProvider from "./collectionPage/FilterProvider";
@@ -30,6 +32,12 @@ function App() {
             </Route>
             <Route exact path="/login">
               <LoginPage />
+            </Route>
+            <Route exact path="/about">
+              <AboutPage />
+            </Route>
+            <Route exact path="/contact">
+              <ContactPage />
             </Route>
             <Route path="/reserve-class">
               <CheckOut title="hello" />

@@ -20,6 +20,8 @@ const Header = () => {
             </h1>
           </Link>
           <Link to="/classes">Classes</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
 
         <ProfileInHeader />
