@@ -20,11 +20,18 @@ Live demo: https://kidcademy.netlify.app/\
 
 ![image](https://user-images.githubusercontent.com/78935540/125161223-18393380-e14f-11eb-880b-6eecab11368b.png)
 
-![image](https://user-images.githubusercontent.com/78935540/125161242-330ba800-e14f-11eb-892b-74510dc1d7e6.png)
+## Classes Page
 
-![image](https://user-images.githubusercontent.com/78935540/125161352-d0ff7280-e14f-11eb-9416-34957ef84061.png)
+![image](https://user-images.githubusercontent.com/78935540/125161435-63077b00-e150-11eb-92b5-16839e219d13.png)
 
-![image](https://user-images.githubusercontent.com/78935540/125161368-dfe62500-e14f-11eb-96ac-5f1b5ca69179.png)
+## Class Page
+
+![image](https://user-images.githubusercontent.com/78935540/125161410-3ce1db00-e150-11eb-9ee7-c66742f57aa9.png)
+
+
+## Checkout Page
+
+![image](https://user-images.githubusercontent.com/78935540/125161386-0906b580-e150-11eb-8d37-38bc3c60d94b.png)
 
 
 
