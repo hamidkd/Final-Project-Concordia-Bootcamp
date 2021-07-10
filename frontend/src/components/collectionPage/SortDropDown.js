@@ -5,8 +5,6 @@ import { themeVars } from "../GlobalStyles";
 export const SortDropdown = ({ onChangeHandler }) => {
   return (
     <Div>
-      {/* <label className="label">Sort by:</label> */}
-
       <Select className="sort-dropdown" onChange={onChangeHandler}>
         <option value="" disabled selected>
           Sort By:
@@ -27,8 +25,7 @@ display: flex;
 align-items :center;
 gap: 0.5rem;
 
-.sort-dropdown {
-}
+
 
 .label {
     font-size:1.2em;
@@ -53,7 +50,7 @@ const Select = Styled.select`
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     position: relative;
 
-   
+ 
   
     option {
       /* padding: 1rem; */

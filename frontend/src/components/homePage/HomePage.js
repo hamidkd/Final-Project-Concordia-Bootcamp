@@ -6,6 +6,7 @@ import FeaturedClass from "./FeaturedClass";
 import CategoryCard from "./CategoryCard";
 import Hero from "./Hero";
 import Loading from "../utils/Loading";
+import HomePageLoading from "../utils/HomePageLoading";
 
 const HomePage = () => {
   const { categories } = useContext(AppContext);
@@ -16,7 +17,7 @@ const HomePage = () => {
         <h2>Categories</h2>
         <ul className="categories">
           {!categories ? (
-            <Loading />
+            <HomePageLoading />
           ) : (
             categories.map((category) => {
               return <CategoryCard category={category} />;
