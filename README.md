@@ -83,8 +83,6 @@ Live demo: https://kidcademy.netlify.app/
 
 
 
-# Server Endpoints
-
 
 
 
