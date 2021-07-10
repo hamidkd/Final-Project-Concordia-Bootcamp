@@ -7,12 +7,13 @@ const OnlyShowAliveCheckBox = ({
 }) => {
   return (
     <Div>
+      <label className="label">
       <input
         type="checkbox"
         checked={isOnlyShowInStockChecked}
         onChange={onChangeHandler}
       />
-      <label className="label">Alive!</label>
+        Alive!</label>
     </Div>
   );
 };
