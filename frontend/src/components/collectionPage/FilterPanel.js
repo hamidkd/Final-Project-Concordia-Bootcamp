@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FilterContext } from "./FilterProvider";
 import Styled from "styled-components";
 import Loading from "../utils/Loading";
+import Tag from "./Tag";
 import { themeVars } from "../GlobalStyles";
 
 const FilterPanel = () => {
@@ -15,17 +16,11 @@ const FilterPanel = () => {
         <Div>
           {Object.keys(filters.category).map((key) => {
             return (
-              <div className="tag">
-                <input
-                  className="filterCheckBox"
-                  type="checkbox"
-                  defaultChecked={filters.category[key]}
-                  value={key}
-                  name="category"
-                  onChange={updateFiltersHandler}
-                />
-                <label className="filterLabel">{key}</label>
-              </div>
+              <Tag
+                defaultChecked={filters.category[key]}
+                value={key}
+                onChangeHandler={updateFiltersHandler}
+              />
             );
           })}{" "}
         </Div>
@@ -33,8 +28,6 @@ const FilterPanel = () => {
     </>
   );
 };
-
-FilterPanel.propTypes = {};
 
 export default FilterPanel;
 
@@ -48,26 +41,12 @@ border-radius: 1rem;
 margin-bottom: 1rem;
 
 display: flex;
+flex-direction: row;
 flex-wrap: wrap;
-gap: 1rem;
-justify-content: space-between;
+gap: 0.5rem;
+justify-content: center;
 
-div {
-padding-inline: 1rem;
-padding-block: 0.8rem;
-border-radius: 9rem;
-background: ${themeVars.accent2Color};
-box-shadow: ${themeVars.boxShadow};
-}
 
-.filterCheckBox {
-    /* border: 2px solid orange; */
-    
-}
-
-label {
-    color: white;
-}
 
 
 
