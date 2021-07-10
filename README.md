@@ -16,6 +16,38 @@ Live demo: https://kidcademy.netlify.app/\
 * React.js
 * Styled-Components
 
+# Dependencies Used in the Frontend
+
+    "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-icons": "^4.2.0",
+    "react-rating-stars-component": "^2.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "styled-components": "^5.3.0",
+    "web-vitals": "^1.0.1"
+    }
+
+
+# Dependencies Used in the Backend
+
+    "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "google-auth-library": "^7.1.2",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+    }
+
+
 # Screenshots
 
 ![image](https://user-images.githubusercontent.com/78935540/125161223-18393380-e14f-11eb-880b-6eecab11368b.png)
@@ -54,25 +86,8 @@ Live demo: https://kidcademy.netlify.app/\
 # Server Endpoints
 
 
-# Dependencies Used in the Frontend
-
-    "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-google-login": "^5.2.2",
-    "react-icons": "^4.2.0",
-    "react-rating-stars-component": "^2.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.3.0",
-    "web-vitals": "^1.0.1"
-  }
 
 
-# Dependencies Used in the Backend
 
 
 
