@@ -47,6 +47,16 @@ Live demo: https://kidcademy.netlify.app/
     "nodemon": "^2.0.7"
     }
 
+# Server Endpoints 
+
+| Endpoint      | HTTP Method | Description |
+| ----------- | ----------- | ----------- |
+| /api/categories | GET | fetches all the categories from database |
+| /api/tutors | GET | fetches all the tutors (classes) from database |
+| /api/tutors/:username | GET | fetches a tutor (class) with a specific username |
+
+
+
 
 # Screenshots
 
