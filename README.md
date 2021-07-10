@@ -54,9 +54,13 @@ Live demo: https://kidcademy.netlify.app/
 | /api/categories | GET | fetches all the categories from database |
 | /api/tutors | GET | fetches all the tutors (classes) from database |
 | /api/tutors/:username | GET | fetches a tutor (class) with a specific username |
-
-
-
+| /api/tutors/:tutorUsername/update | PATCH | updates a tutor (class) information |
+| /api/tutors/:tutorUsername/add-review| PATCH | add an ananymus review for a tutor (class) with specific username |
+| /api/orders | GET | fetches all class purchases by all users |
+| /api/orders/:tutorUsername | GET | fetches all class purchases from a specific tutor (class) by all users  |
+| /api/orders/email/:email | GET | fetches all class purchases from all tutors (classes) by a user with an specific email |
+| /api/orders/:tutorUsername | POST | create an class purchase from an specific tutor (class) |
+| /api/orders/:orderId/delete | DELETE | deeltes a class purchase with an specific orderId |
 
 # Screenshots
 
