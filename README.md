@@ -16,6 +16,45 @@ Live demo: https://kidcademy.netlify.app/
 * React.js
 * Styled-Components
 
+# What is implemented in this project
+
+## HomePage
+
+you can browse kidCademy and buy classes as a guest. In the HomePage you'll different categories of Classes. Each one of them lead you to Classes of that category. Also, you will see a list of featured classes.
+
+## Classes Page
+
+In this page you can see all of the classes available an filter them by category. 
+We tried to have the best instractors in the history of humanity. the downside is that some of them are not alive. But don't worry. We made it possible for you to filter only alive ones! 
+Also you can sort them by price (low to high and high to low) as well as alphabetically (ascending and descending).
+
+
+## Class Page
+
+In the class page you will find more information about the class as well as the reviews given to that class by past users. And if you like that class you can click on buy button whcih leads you to checkout page.
+
+## CheckOut Page
+
+Here you can fill the checkout form with your information to buy the class. The class will be assign to the user who has the same email. 
+
+## Login Page
+
+Here you can create an account as a user (not admin or instructor) with you google account. After that you can signin with your google acount. 
+
+## User Dashboard (My Classes)
+
+in user dashboar, user can see a list of classes he/she has bought. Also user can write a review for those classes and rate them. 
+
+## Instractor Dashboard
+
+Instructors are preregistered in database. when instuctor login he/she will see instactor badge beside his/her name and can access to instructor dashboard. In the instructor dashboard, the teacher sees a list of all users who bought his/her clsass. Also the teacher can edit all of the class info and update it in the database.
+
+## Admin Dashboard
+
+Admins like instructors are preregistered in the databse. In the admin dashboard, admin sees all the class purchases by all users and delete (cancel) any of class purchases . Also admin can select any class and edit any information of that class.
+
+
+
 # Dependencies Used in the Frontend
 
     "dependencies": {
