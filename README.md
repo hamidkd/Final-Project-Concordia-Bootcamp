@@ -2,7 +2,7 @@
 
 This is My Final Project for Concordia Bootcamp which is parent can get master classes for their kids
 
-Live demo: https://kidcademy.netlify.app/\
+Live demo: https://kidcademy.netlify.app/
 
 ![image](https://user-images.githubusercontent.com/78935540/125161214-0a83ae00-e14f-11eb-9afc-7a889b04c15c.png)
 
