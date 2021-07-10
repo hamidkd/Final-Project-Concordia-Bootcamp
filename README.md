@@ -33,6 +33,20 @@ Live demo: https://kidcademy.netlify.app/\
 
 ![image](https://user-images.githubusercontent.com/78935540/125161386-0906b580-e150-11eb-8d37-38bc3c60d94b.png)
 
+## User Dashboard
+
+![image](https://user-images.githubusercontent.com/78935540/125161477-9cd88180-e150-11eb-9f0b-c5d074de3933.png)
+
+## Teacher Dashboard
+
+![image](https://user-images.githubusercontent.com/78935540/125161538-ea54ee80-e150-11eb-9aa0-5d06dbd472da.png)
+
+
+## Admin Dashboard
+
+![image](https://user-images.githubusercontent.com/78935540/125161560-022c7280-e151-11eb-93e8-d59384a60cf5.png)
+
+![image](https://user-images.githubusercontent.com/78935540/125161584-21c39b00-e151-11eb-872c-8100d3285cad.png)
 
 
 
