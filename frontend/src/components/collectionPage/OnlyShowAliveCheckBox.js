@@ -24,9 +24,6 @@ const Div = Styled.div`
 display: flex;
 gap: 0.5rem;
 align-items: center;
-border: 2px solid lightgray;
-border-radius: 0.8rem;
-padding: 0.7rem;
 
 .label {
     font-size:1.2em;

@@ -14,8 +14,8 @@ const HomePageLoading = () => {
       <Loading />
       {isLate && (
         <p>
-          Sorry. It is slow becasue of Heroku free account. Thank You for your
-          patient"
+          Sorry! It is slow becasue of Heroku free account. Thank You for your
+          patient! 🤗"
         </p>
       )}
     </Div>
