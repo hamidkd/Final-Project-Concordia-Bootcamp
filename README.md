@@ -6,7 +6,8 @@ Live demo: https://kidcademy.netlify.app/
 
 ![image](https://user-images.githubusercontent.com/78935540/125161214-0a83ae00-e14f-11eb-9afc-7a889b04c15c.png)
 
-![video](https://www.youtube.com/watch?v=hMQj7BsgvHQ)
+
+[![Alt text](https://img.youtube.com/vi/hMQj7BsgvHQ/0.jpg)](https://www.youtube.com/watch?v=hMQj7BsgvHQ)
 
 
 
